@@ -1,0 +1,232 @@
+{
+  "main": {
+    "id": "b9899a06c4ed9d4f",
+    "type": "split",
+    "children": [
+      {
+        "id": "bb42926039cf9b76",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0503cabf572b482f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "LinuxStudy/Linux基础/6.通配符和正则表达式基础.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "6.通配符和正则表达式基础"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a2f3993f95abb353",
+    "type": "split",
+    "children": [
+      {
+        "id": "ef431992c6f6fe97",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a22f521784f87850",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": true
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "9749b26067c63946",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "5002ebb56ef1ac3e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "e3eacad1fe49cfb6",
+    "type": "split",
+    "children": [
+      {
+        "id": "24dc2c74eb0f1733",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e571cb38435fcef3",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "LinuxStudy/Linux基础/9.学习shell与shell script.md",
+                "collapseAll": true,
+                "extraContext": true,
+                "sortOrder": "alphabetical",
+                "showSearch": true,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              },
+              "icon": "links-coming-in",
+              "title": "9.学习shell与shell script 的反向链接列表"
+            }
+          },
+          {
+            "id": "15572f308d9c01a4",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "LinuxStudy/Linux基础/9.学习shell与shell script.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": false
+              },
+              "icon": "links-going-out",
+              "title": "9.学习shell与shell script 的出链列表"
+            }
+          },
+          {
+            "id": "fcb2783495e07ac2",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "51834cdab6d9346d",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "81aaeb31fc9605c6",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "LinuxStudy/Linux基础/6.通配符和正则表达式基础.md",
+                "followCursor": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "6.通配符和正则表达式基础 的大纲"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "obsidian-git:Open Git source control": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "0503cabf572b482f",
+  "lastOpenFiles": [
+    "LinuxStudy/Linux基础/9.学习shell与shell script.md",
+    "LinuxStudy/Rocky/X Windows.md",
+    "LinuxStudy/Linux基础/8. 链接.md",
+    "LinuxStudy/Linux基础/7.系统目录结构.md",
+    "LinuxStudy/Linux基础/6.通配符和正则表达式基础.md",
+    "LinuxStudy/Linux基础/5.文件权限详解.md",
+    "LinuxStudy/Linux基础/4.环境变量.md",
+    "LinuxStudy/Linux基础/10.各种名词，概念，称呼.md",
+    "LinuxStudy/Linux基础/11.常见错误及解决方法.md",
+    "LinuxStudy/Linux基础/附件：权限与命令间的关系.md",
+    "LinuxStudy/Linux基础/1.命令详情.md",
+    "LinuxStudy/Linux基础/2.快捷键.md",
+    "LinuxStudy/Linux基础/0.命令分类概览.md",
+    "LinuxStudy/鸟哥的Linux私房菜/第一章Linux是什么和如何学习.md",
+    "LinuxStudy/鸟哥的Linux私房菜/第零章计算机概论.md",
+    "LinuxStudy/Linux基础/3.文件系统.md",
+    "LinuxStudy/Linux基础/附件：vim常用指令示意图.png",
+    "LinuxStudy/Linux基础/附件：FAT文件系统数据存取示意图.png",
+    "LinuxStudy/Linux基础/附件：vim按键说明.md",
+    "Pasted image 20260222183553.png",
+    "LinuxStudy/Linux基础/附件：vim 常用指令示意图.md",
+    "LinuxStudy/鸟哥的Linux私房菜",
+    "LinuxStudy/Linux基础/附件：inode block数据存取示意图.png",
+    "LinuxStudy/Linux基础/附件：man,info,help,whatis详情和对比.md",
+    "LinuxStudy/Linux基础/附件：chmod中+，-，=的区别.md",
+    "LinuxStudy/Study.base",
+    "[man,info,help,whatis详情和对比.md",
+    "LinuxStudy/Linux基础",
+    "LinuxStudy/Linux基础.md",
+    "().md",
+    "LinuxStudy/未命名/未命名.md",
+    "LinuxStudy/Ubuntu",
+    "LinuxStudy/鸟哥的Linux私房菜.md",
+    "LinuxStudy/Rocky",
+    "LinuxStudy/第一部分.pdf",
+    "LinuxStudy/未命名.canvas",
+    "未命名.base",
+    "LinuxStudy",
+    "屏幕截图 2026-01-12 225009 1.png",
+    "屏幕截图 2026-01-12 225009.png",
+    "未命名 1",
+    "未命名 1.base"
+  ]
+}
