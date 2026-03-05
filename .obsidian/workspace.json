@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "LinuxStudy/Linux基础/6.通配符和正则表达式基础.md",
+                "file": "LinuxStudy/Linux基础/1.命令详情.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "6.通配符和正则表达式基础"
+              "title": "1.命令详情"
             }
           }
         ]
@@ -156,13 +156,23 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "LinuxStudy/Linux基础/6.通配符和正则表达式基础.md",
+                "file": "LinuxStudy/Linux基础/1.命令详情.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "6.通配符和正则表达式基础 的大纲"
+              "title": "1.命令详情 的大纲"
+            }
+          },
+          {
+            "id": "91ca8a8853ef4e81",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
             }
           }
         ],
@@ -187,10 +197,10 @@
   "active": "0503cabf572b482f",
   "lastOpenFiles": [
     "LinuxStudy/Linux基础/9.学习shell与shell script.md",
+    "LinuxStudy/Linux基础/6.通配符和正则表达式基础.md",
     "LinuxStudy/Rocky/X Windows.md",
     "LinuxStudy/Linux基础/8. 链接.md",
     "LinuxStudy/Linux基础/7.系统目录结构.md",
-    "LinuxStudy/Linux基础/6.通配符和正则表达式基础.md",
     "LinuxStudy/Linux基础/5.文件权限详解.md",
     "LinuxStudy/Linux基础/4.环境变量.md",
     "LinuxStudy/Linux基础/10.各种名词，概念，称呼.md",
