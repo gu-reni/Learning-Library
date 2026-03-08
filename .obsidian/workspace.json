@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "LinuxStudy/Linux基础/9.学习shell与shell script.md",
+                "file": "LinuxStudy/Linux基础/1.命令详情.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "9.学习shell与shell script"
+              "title": "1.命令详情"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "LinuxStudy/Linux基础/9.学习shell与shell script.md",
+                "file": "LinuxStudy/Linux基础/1.命令详情.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "9.学习shell与shell script 的大纲"
+              "title": "1.命令详情 的大纲"
             }
           },
           {
@@ -194,11 +194,11 @@
       "bases:新建数据库": false
     }
   },
-  "active": "81aaeb31fc9605c6",
+  "active": "0503cabf572b482f",
   "lastOpenFiles": [
+    "LinuxStudy/Linux基础/9.学习shell与shell script.md",
     "LinuxStudy/Linux基础/7.系统目录结构.md",
     "LinuxStudy/Linux基础/1.命令详情.md",
-    "LinuxStudy/Linux基础/9.学习shell与shell script.md",
     "LinuxStudy/Linux基础/6.通配符和正则表达式基础.md",
     "LinuxStudy/Rocky/X Windows.md",
     "LinuxStudy/Linux基础/8. 链接.md",
