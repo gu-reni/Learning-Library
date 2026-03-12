@@ -11,13 +11,14 @@
             "id": "0503cabf572b482f",
             "type": "leaf",
             "state": {
-              "type": "bases",
+              "type": "markdown",
               "state": {
-                "file": "LinuxStudy/Study.base",
-                "viewName": "表格"
+                "file": "OpenClaw/操作手册.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-table",
-              "title": "Study"
+              "icon": "lucide-file",
+              "title": "操作手册"
             }
           }
         ]
@@ -155,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "LinuxStudy/Study.base",
+                "file": "OpenClaw/操作手册.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Study 的大纲"
+              "title": "操作手册 的大纲"
             }
           },
           {
@@ -195,6 +196,10 @@
   },
   "active": "0503cabf572b482f",
   "lastOpenFiles": [
+    "LinuxStudy/Study.base",
+    "OpenClaw/操作手册.md",
+    "OpenClaw",
+    "未命名.md",
     "LinuxStudy/Linux基础/附件：其他理论知识.md",
     "LinuxStudy/Rocky/X Windows.md",
     "LinuxStudy/鸟哥的Linux私房菜/第零章计算机概论.md",
@@ -204,7 +209,6 @@
     "LinuxStudy/Linux基础/0.命令分类概览.md",
     "LinuxStudy/Linux基础/11.Linux使用者管理.md",
     "LinuxStudy/Linux基础/12.常见错误及解决方法.md",
-    "LinuxStudy/Study.base",
     "LinuxStudy/Linux基础/2.快捷键.md",
     "LinuxStudy/Linux基础/3.文件系统.md",
     "LinuxStudy/Linux基础/5.文件权限详解.md",
@@ -225,8 +229,6 @@
     "LinuxStudy/Linux基础/附件：chmod中+，-，=的区别.md",
     "[man,info,help,whatis详情和对比.md",
     "LinuxStudy/Linux基础",
-    "LinuxStudy/Linux基础.md",
-    "().md",
     "LinuxStudy/Ubuntu",
     "LinuxStudy/Rocky",
     "LinuxStudy/第一部分.pdf",
@@ -235,7 +237,6 @@
     "LinuxStudy",
     "屏幕截图 2026-01-12 225009 1.png",
     "屏幕截图 2026-01-12 225009.png",
-    "未命名 1",
-    "未命名 1.base"
+    "未命名 1"
   ]
 }
