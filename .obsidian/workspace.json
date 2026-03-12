@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "LinuxStudy/Linux基础/12.磁盘配额(Quota)与进阶文件系统管理.md",
+                "file": "0Voice/多线程并发锁.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "12.磁盘配额(Quota)与进阶文件系统管理"
+              "title": "多线程并发锁"
             }
           }
         ],
@@ -171,13 +171,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "LinuxStudy/Linux基础/12.磁盘配额(Quota)与进阶文件系统管理.md",
+                "file": "0Voice/多线程并发锁.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "12.磁盘配额(Quota)与进阶文件系统管理 的大纲"
+              "title": "多线程并发锁 的大纲"
             }
           },
           {
@@ -211,8 +211,10 @@
   },
   "active": "dba332206cba0b3d",
   "lastOpenFiles": [
-    "LinuxStudy/Linux基础/11.Linux使用者管理.md",
     "LinuxStudy/Linux基础/12.磁盘配额(Quota)与进阶文件系统管理.md",
+    "0Voice/多线程并发锁.md",
+    "0Voice",
+    "LinuxStudy/Linux基础/11.Linux使用者管理.md",
     "LinuxStudy/Linux基础/常见错误及解决方法.md",
     "LinuxStudy/Linux基础/1.命令详情.md",
     "LinuxStudy/Linux基础/0.命令分类概览.md",
@@ -251,7 +253,6 @@
     "未命名.base",
     "LinuxStudy",
     "屏幕截图 2026-01-12 225009 1.png",
-    "屏幕截图 2026-01-12 225009.png",
-    "未命名 1"
+    "屏幕截图 2026-01-12 225009.png"
   ]
 }
