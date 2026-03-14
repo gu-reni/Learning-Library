@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "LinuxStudy/Linux基础/4.环境变量.md",
+                "file": "0Voice/状态机实现文件单词统计项目.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "4.环境变量"
+              "title": "状态机实现文件单词统计项目"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "LinuxStudy/Linux基础/4.环境变量.md",
+                "file": "0Voice/状态机实现文件单词统计项目.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "4.环境变量 的大纲"
+              "title": "状态机实现文件单词统计项目 的大纲"
             }
           },
           {
@@ -176,7 +176,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -196,6 +196,10 @@
   },
   "active": "dba332206cba0b3d",
   "lastOpenFiles": [
+    "0Voice/多线程并发锁项目.md",
+    "0Voice/通讯录项目.md",
+    "0Voice/状态机实现文件单词统计项目.md",
+    "LinuxStudy/Linux基础/4.环境变量.md",
     "LinuxStudy/Linux基础/14.进程管理与SELinux.md",
     "LinuxStudy/Linux基础/13.计划任务.md",
     "LinuxStudy/Linux基础/1.命令详情.md",
@@ -209,9 +213,6 @@
     "LinuxStudy/Linux基础/11.Linux使用者管理.md",
     "LinuxStudy/Linux基础/附件：其他计算机基础理论知识.md",
     "LinuxStudy/Study.base",
-    "0Voice/多线程并发锁项目.md",
-    "0Voice/状态机实现文件单词统计项目.md",
-    "0Voice/通讯录项目.md",
     "0Voice",
     "OpenClaw/操作手册.md",
     "OpenClaw",
@@ -224,7 +225,6 @@
     "LinuxStudy/Linux基础/附件：vim按键说明.md",
     "LinuxStudy/Linux基础/9.学习shell与shell script.md",
     "LinuxStudy/Linux基础/6.通配符和正则表达式基础.md",
-    "LinuxStudy/Linux基础/4.环境变量.md",
     "LinuxStudy/Linux基础/附件：权限与命令间的关系.md",
     "LinuxStudy/Linux基础/附件：FAT文件系统数据存取示意图.png",
     "Pasted image 20260222183553.png",
