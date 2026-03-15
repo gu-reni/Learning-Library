@@ -194,8 +194,10 @@
       "bases:新建数据库": false
     }
   },
-  "active": "81aaeb31fc9605c6",
+  "active": "dba332206cba0b3d",
   "lastOpenFiles": [
+    "LinuxStudy/Linux基础/14.进程管理与SELinux.md",
+    "LinuxStudy/Linux基础/1.命令详情.md",
     "LinuxStudy/Study.base",
     "Leetcode/206.反转链表.md",
     "Leetcode/121. 买卖股票的最佳时机.md",
@@ -207,9 +209,7 @@
     "0Voice/多线程并发锁项目.md",
     "0Voice/通讯录项目.md",
     "LinuxStudy/Linux基础/4.环境变量.md",
-    "LinuxStudy/Linux基础/14.进程管理与SELinux.md",
     "LinuxStudy/Linux基础/13.计划任务.md",
-    "LinuxStudy/Linux基础/1.命令详情.md",
     "LinuxStudy/Linux基础/5.文件权限详解.md",
     "LinuxStudy/Linux基础/3.文件系统.md",
     "LinuxStudy/Linux基础/2.快捷键.md",
