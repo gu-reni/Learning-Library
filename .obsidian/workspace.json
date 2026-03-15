@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Leetcode/121. 买卖股票的最佳时机.md",
+                "file": "Leetcode/104. 二叉树的最大深度.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "121. 买卖股票的最佳时机"
+              "title": "104. 二叉树的最大深度"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Leetcode/121. 买卖股票的最佳时机.md",
+                "file": "Leetcode/104. 二叉树的最大深度.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "121. 买卖股票的最佳时机 的反向链接列表"
+              "title": "104. 二叉树的最大深度 的反向链接列表"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Leetcode/121. 买卖股票的最佳时机.md",
+                "file": "Leetcode/104. 二叉树的最大深度.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "121. 买卖股票的最佳时机 的大纲"
+              "title": "104. 二叉树的最大深度 的大纲"
             }
           },
           {
@@ -194,10 +194,10 @@
       "bases:新建数据库": false
     }
   },
-  "active": "81aaeb31fc9605c6",
+  "active": "dba332206cba0b3d",
   "lastOpenFiles": [
-    "Leetcode/104. 二叉树的最大深度.md",
     "Leetcode/121. 买卖股票的最佳时机.md",
+    "Leetcode/104. 二叉树的最大深度.md",
     "Leetcode/附件：104.png",
     "0Voice/状态机实现文件单词统计项目.md",
     "未命名.md",
