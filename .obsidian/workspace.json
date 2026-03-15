@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Leetcode/104. 二叉树的最大深度.md",
+                "file": "Leetcode/206.反转链表.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "104. 二叉树的最大深度"
+              "title": "206.反转链表"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Leetcode/104. 二叉树的最大深度.md",
+                "file": "Leetcode/206.反转链表.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "104. 二叉树的最大深度 的反向链接列表"
+              "title": "206.反转链表 的反向链接列表"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Leetcode/104. 二叉树的最大深度.md",
+                "file": "Leetcode/206.反转链表.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "104. 二叉树的最大深度 的大纲"
+              "title": "206.反转链表 的大纲"
             }
           },
           {
@@ -197,6 +197,7 @@
   "active": "dba332206cba0b3d",
   "lastOpenFiles": [
     "Leetcode/121. 买卖股票的最佳时机.md",
+    "Leetcode/206.反转链表.md",
     "Leetcode/104. 二叉树的最大深度.md",
     "Leetcode/附件：104.png",
     "0Voice/状态机实现文件单词统计项目.md",
@@ -227,7 +228,6 @@
     "LinuxStudy/Linux基础/附件：vim常用指令示意图.png",
     "LinuxStudy/Linux基础/7.系统目录结构.md",
     "LinuxStudy/Linux基础/8. 链接.md",
-    "LinuxStudy/Linux基础/附件：vim按键说明.md",
     "LinuxStudy/Linux基础/附件：FAT文件系统数据存取示意图.png",
     "Pasted image 20260222183553.png",
     "LinuxStudy/鸟哥的Linux私房菜",
