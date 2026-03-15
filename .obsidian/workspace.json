@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "0Voice/状态机实现文件单词统计项目.md",
+                "file": "Leetcode/121. 买卖股票的最佳时机.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "状态机实现文件单词统计项目 的大纲"
+              "title": "121. 买卖股票的最佳时机 的大纲"
             }
           },
           {
@@ -175,7 +175,8 @@
               "title": "Source Control"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -193,7 +194,7 @@
       "bases:新建数据库": false
     }
   },
-  "active": "dba332206cba0b3d",
+  "active": "81aaeb31fc9605c6",
   "lastOpenFiles": [
     "Leetcode/104. 二叉树的最大深度.md",
     "Leetcode/121. 买卖股票的最佳时机.md",
