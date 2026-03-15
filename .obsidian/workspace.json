@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "LinuxStudy/Linux基础/1.命令详情.md",
+                "file": "0Voice/线程池项目.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1.命令详情"
+              "title": "线程池项目"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "LinuxStudy/Linux基础/1.命令详情.md",
+                "file": "0Voice/线程池项目.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "1.命令详情 的反向链接列表"
+              "title": "线程池项目 的反向链接列表"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "LinuxStudy/Linux基础/1.命令详情.md",
+                "file": "0Voice/线程池项目.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "1.命令详情 的大纲"
+              "title": "线程池项目 的大纲"
             }
           },
           {
@@ -196,6 +196,13 @@
   },
   "active": "dba332206cba0b3d",
   "lastOpenFiles": [
+    "0Voice/通讯录项目.md",
+    "0Voice/多线程并发锁项目.md",
+    "0Voice/线程池项目.md",
+    "0Voice/状态机实现文件单词统计项目.md",
+    "LinuxStudy/Linux基础/15.认识系统服务（daemon）.md",
+    "未命名 1.md",
+    "未命名.md",
     "LinuxStudy/Linux基础/14.进程管理与SELinux.md",
     "LinuxStudy/Linux基础/1.命令详情.md",
     "LinuxStudy/Study.base",
@@ -203,11 +210,7 @@
     "Leetcode/121. 买卖股票的最佳时机.md",
     "Leetcode/104. 二叉树的最大深度.md",
     "Leetcode/附件：104.png",
-    "0Voice/状态机实现文件单词统计项目.md",
-    "未命名.md",
     "Leetcode",
-    "0Voice/多线程并发锁项目.md",
-    "0Voice/通讯录项目.md",
     "LinuxStudy/Linux基础/4.环境变量.md",
     "LinuxStudy/Linux基础/13.计划任务.md",
     "LinuxStudy/Linux基础/5.文件权限详解.md",
@@ -224,9 +227,7 @@
     "OpenClaw",
     "LinuxStudy/Rocky/X Windows.md",
     "LinuxStudy/鸟哥的Linux私房菜/第零章计算机概论.md",
-    "LinuxStudy/鸟哥的Linux私房菜/第一章Linux是什么和如何学习.md",
     "LinuxStudy/Linux基础/附件：vim常用指令示意图.png",
-    "LinuxStudy/Linux基础/7.系统目录结构.md",
     "LinuxStudy/Linux基础/附件：FAT文件系统数据存取示意图.png",
     "Pasted image 20260222183553.png",
     "LinuxStudy/鸟哥的Linux私房菜",
