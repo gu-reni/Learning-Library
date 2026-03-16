@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OpenClaw/让openclaw抓取网页内容操作手册.md",
+                "file": "0Voice/Linux C++开发编程入门/Mysql数据库编程连接与插入数据，存储和读取照片.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "让openclaw抓取网页内容操作手册"
+              "title": "Mysql数据库编程连接与插入数据，存储和读取照片"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "OpenClaw/让openclaw抓取网页内容操作手册.md",
+                "file": "0Voice/Linux C++开发编程入门/Mysql数据库编程连接与插入数据，存储和读取照片.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "让openclaw抓取网页内容操作手册 的大纲"
+              "title": "Mysql数据库编程连接与插入数据，存储和读取照片 的大纲"
             }
           },
           {
@@ -194,11 +194,14 @@
       "bases:新建数据库": false
     }
   },
-  "active": "a22f521784f87850",
+  "active": "dba332206cba0b3d",
   "lastOpenFiles": [
+    "0Voice/未命名.canvas",
+    "0Voice/Linux C++开发编程入门/Mysql数据库编程连接与插入数据，存储和读取照片.md",
+    "0Voice/Linux C++开发编程入门/多线程并发锁项目.md",
+    "OpenClaw/让openclaw抓取网页内容操作手册.md",
     "0Voice/Linux C C++高级全栈开发（后端-游戏-嵌入式-高性能网络-存储-基础架构）",
     "0Voice/未命名.md",
-    "OpenClaw/让openclaw抓取网页内容操作手册.md",
     "0Voice/Linux C++开发编程入门",
     "OpenClaw/部署操作手册.md",
     "LinuxStudy/Linux基础/16.认识与分析日志文件.md",
@@ -216,7 +219,6 @@
     "Windows基础详解",
     "0Voice/Linux C++开发编程入门/线程池项目.md",
     "0Voice/Linux C++开发编程入门/通讯录项目.md",
-    "0Voice/Linux C++开发编程入门/多线程并发锁项目.md",
     "0Voice/Linux C++开发编程入门/状态机实现文件单词统计项目.md",
     "LinuxStudy/Linux基础/15.认识系统服务（daemon）.md",
     "未命名 1.md",
@@ -224,7 +226,6 @@
     "LinuxStudy/Linux基础/14.进程管理与SELinux.md",
     "LinuxStudy/Study.base",
     "Leetcode/206.反转链表.md",
-    "Leetcode/121. 买卖股票的最佳时机.md",
     "Leetcode/附件：104.png",
     "Leetcode",
     "0Voice",
@@ -236,7 +237,6 @@
     "LinuxStudy/Linux基础/附件：inode block数据存取示意图.png",
     "LinuxStudy/Linux基础",
     "LinuxStudy/Ubuntu",
-    "LinuxStudy/Rocky",
     "LinuxStudy/未命名.canvas",
     "屏幕截图 2026-01-12 225009 1.png",
     "屏幕截图 2026-01-12 225009.png"
