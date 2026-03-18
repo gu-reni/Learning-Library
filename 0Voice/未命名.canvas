@@ -1,0 +1,14 @@
+{
+	"nodes":[
+		{"id":"33f371c2c873c947","x":-120,"y":-380,"width":250,"height":60,"type":"text","text":"百万并发服务器"},
+		{"id":"56eb42dbf019f7c1","x":-400,"y":-120,"width":250,"height":60,"type":"text","text":""},
+		{"id":"5b48a050d92af9c7","x":-20,"y":-120,"width":250,"height":60,"type":"text","text":""},
+		{"id":"b0ed4eb787de5654","x":-125,"y":-30,"width":250,"height":60,"type":"text","text":""}
+	],
+	"edges":[
+		{"id":"94414865337a1251","fromNode":"33f371c2c873c947","fromSide":"bottom","toNode":"56eb42dbf019f7c1","toSide":"top"},
+		{"id":"80e945c925a22977","fromNode":"33f371c2c873c947","fromSide":"bottom","toNode":"5b48a050d92af9c7","toSide":"top"},
+		{"id":"feaf26af327c2bea","fromNode":"b0ed4eb787de5654","fromSide":"left","toNode":"56eb42dbf019f7c1","toSide":"bottom"},
+		{"id":"5d0b37d061344fe5","fromNode":"b0ed4eb787de5654","fromSide":"right","toNode":"5b48a050d92af9c7","toSide":"bottom"}
+	]
+}
