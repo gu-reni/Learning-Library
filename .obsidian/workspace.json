@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0Voice/Linux C C++开发编程入门/DNS编程.md",
+                "file": "cpp_interview_questions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DNS编程"
+              "title": "cpp_interview_questions"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "0Voice/Linux C C++开发编程入门/DNS编程.md",
+                "file": "cpp_interview_questions.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "DNS编程 的大纲"
+              "title": "cpp_interview_questions 的大纲"
             }
           },
           {
@@ -196,8 +196,10 @@
   },
   "active": "dba332206cba0b3d",
   "lastOpenFiles": [
-    "0Voice/Linux C C++开发编程入门/未命名 1.md",
     "0Voice/Linux C C++开发编程入门/DNS编程.md",
+    "cpp_interview_questions.md",
+    "cpp.md",
+    "0Voice/Linux C C++开发编程入门/未命名 1.md",
     "0Voice/Linux C C++开发编程入门/Mysql数据库编程连接与插入数据，存储和读取照片.md",
     "0Voice/未命名.canvas",
     "0Voice/Linux C C++开发编程入门/多线程并发锁项目.md",
@@ -224,9 +226,7 @@
     "0Voice/Linux C C++开发编程入门/状态机实现文件单词统计项目.md",
     "LinuxStudy/Linux基础/15.认识系统服务（daemon）.md",
     "未命名 1.md",
-    "LinuxStudy/Linux基础/14.进程管理与SELinux.md",
     "LinuxStudy/Study.base",
-    "Leetcode/206.反转链表.md",
     "Leetcode/附件：104.png",
     "Leetcode",
     "0Voice",
