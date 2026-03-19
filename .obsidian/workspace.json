@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "LinuxStudy/Linux基础/18.基础系统设置与备份策略.md",
+                "file": "LinuxStudy/Linux基础/1.命令详情.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "18.基础系统设置与备份策略"
+              "title": "1.命令详情"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "LinuxStudy/Linux基础/18.基础系统设置与备份策略.md",
+                "file": "LinuxStudy/Linux基础/1.命令详情.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "18.基础系统设置与备份策略 的大纲"
+              "title": "1.命令详情 的大纲"
             }
           },
           {
@@ -196,9 +196,9 @@
   },
   "active": "dba332206cba0b3d",
   "lastOpenFiles": [
-    "LinuxStudy/Linux基础/1.命令详情.md",
-    "LinuxStudy/Linux基础/18.基础系统设置与备份策略.md",
     "LinuxStudy/Linux基础/0.命令分类概览.md",
+    "LinuxStudy/Linux基础/18.基础系统设置与备份策略.md",
+    "LinuxStudy/Linux基础/1.命令详情.md",
     "LinuxStudy/Linux基础/17.启动流程、模块管理与Loader.md",
     "LinuxStudy/Linux基础/12.磁盘配额(Quota)与进阶文件系统管理.md",
     "LinuxStudy/Linux基础/8. 链接.md",
