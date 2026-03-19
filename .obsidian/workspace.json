@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "LinuxStudy/Linux基础/1.命令详情.md",
+                "file": "LinuxStudy/Linux基础/19.软件安装：源代码与Tarball.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1.命令详情"
+              "title": "19.软件安装：源代码与Tarball"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "LinuxStudy/Linux基础/1.命令详情.md",
+                "file": "LinuxStudy/Linux基础/19.软件安装：源代码与Tarball.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "1.命令详情 的大纲"
+              "title": "19.软件安装：源代码与Tarball 的大纲"
             }
           },
           {
@@ -196,9 +196,10 @@
   },
   "active": "dba332206cba0b3d",
   "lastOpenFiles": [
-    "LinuxStudy/Linux基础/0.命令分类概览.md",
     "LinuxStudy/Linux基础/18.基础系统设置与备份策略.md",
+    "LinuxStudy/Linux基础/19.软件安装：源代码与Tarball.md",
     "LinuxStudy/Linux基础/1.命令详情.md",
+    "LinuxStudy/Linux基础/0.命令分类概览.md",
     "LinuxStudy/Linux基础/17.启动流程、模块管理与Loader.md",
     "LinuxStudy/Linux基础/12.磁盘配额(Quota)与进阶文件系统管理.md",
     "LinuxStudy/Linux基础/8. 链接.md",
@@ -225,7 +226,6 @@
     "Windows基础详解/00-目录和概述.md",
     "Windows基础详解/附录 - 快捷键和命令.md",
     "Windows基础详解/07-故障排除.md",
-    "Windows基础详解/06-维护与优化.md",
     "Windows基础详解",
     "LinuxStudy/Study.base",
     "Leetcode/附件：104.png",
