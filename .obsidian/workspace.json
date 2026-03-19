@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "LinuxStudy/Linux基础/20.软件安装RPM、SRPM与YUM.md",
+                "file": "LinuxStudy/Linux基础/21.X Window设置介绍.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "20.软件安装RPM、SRPM与YUM"
+              "title": "21.X Window设置介绍"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "LinuxStudy/Linux基础/20.软件安装RPM、SRPM与YUM.md",
+                "file": "LinuxStudy/Linux基础/21.X Window设置介绍.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "20.软件安装RPM、SRPM与YUM 的大纲"
+              "title": "21.X Window设置介绍 的大纲"
             }
           },
           {
@@ -196,12 +196,13 @@
   },
   "active": "dba332206cba0b3d",
   "lastOpenFiles": [
-    "未命名.canvas",
-    "LinuxStudy/Linux基础/20.软件安装RPM、SRPM与YUM.md",
     "LinuxStudy/Linux基础/1.命令详情.md",
+    "LinuxStudy/Linux基础/21.X Window设置介绍.md",
+    "LinuxStudy/Linux基础/0.命令分类概览.md",
+    "LinuxStudy/Linux基础/20.软件安装RPM、SRPM与YUM.md",
+    "未命名.canvas",
     "LinuxStudy/Linux基础/19.软件安装：源代码与Tarball.md",
     "LinuxStudy/Linux基础/18.基础系统设置与备份策略.md",
-    "LinuxStudy/Linux基础/0.命令分类概览.md",
     "LinuxStudy/Linux基础/17.启动流程、模块管理与Loader.md",
     "LinuxStudy/Linux基础/12.磁盘配额(Quota)与进阶文件系统管理.md",
     "LinuxStudy/Linux基础/8. 链接.md",
