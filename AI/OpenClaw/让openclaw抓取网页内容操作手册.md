@@ -5,7 +5,7 @@
 ---
 
 ## 📌 前提条件
-- 你已经拥有一台运行 OpenClaw 的服务器（IP 地址 `47.253.154.240`），且 OpenClaw 网关服务正常运行。
+- 你已经拥有一台运行 OpenClaw 的服务器（IP 地址 ），且 OpenClaw 网关服务正常运行。
 - 你本地有一台电脑（Windows / macOS / Linux），安装有 Chrome 浏览器。
 - 你能够通过 SSH 连接到服务器（知道 root 密码或使用密钥）。
 
@@ -54,7 +54,7 @@ ssh -L 18792:127.0.0.1:18792 root@你的服务器IP -N
 
 例如：
 ```bash
-ssh -L 18792:127.0.0.1:18792 root@47.253.154.240 -N
+ssh -L 18792:127.0.0.1:18792 root@IP地址 -N
 ```
 
 **首次连接可能会提示确认主机密钥**，输入 `yes` 回车即可。之后会要求输入服务器密码（输入时不会显示，直接输完回车）。
@@ -84,7 +84,7 @@ scp -r root@你的服务器IP:/root/.openclaw/browser/chrome-extension 本地存
 ```
 例如（Windows 用户可以在 PowerShell 中执行）：
 ```bash
-scp -r root@47.253.154.240:/root/.openclaw/browser/chrome-extension C:\Users\你的用户名\Desktop\openclaw-extension
+scp -r root@IP地址:/root/.openclaw/browser/chrome-extension C:\Users\你的用户名\Desktop\openclaw-extension
 ```
 如果使用 `scp` 不方便，也可以用 FTP 工具（如 FileZilla）下载。
 
