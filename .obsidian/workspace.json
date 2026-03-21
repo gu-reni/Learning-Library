@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "LinuxStudy/Linux基础/22.Linux内核编译与管理.md",
+                "file": "0Voice/Linux C C++开发编程入门/http项目.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "22.Linux内核编译与管理"
+              "title": "http项目"
             }
           }
         ]
@@ -176,7 +176,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -194,10 +194,11 @@
       "bases:新建数据库": false
     }
   },
-  "active": "51834cdab6d9346d",
+  "active": "dba332206cba0b3d",
   "lastOpenFiles": [
-    "LinuxStudy/Linux基础/21.X Window设置介绍.md",
     "LinuxStudy/Linux基础/22.Linux内核编译与管理.md",
+    "0Voice/Linux C C++开发编程入门/http项目.md",
+    "LinuxStudy/Linux基础/21.X Window设置介绍.md",
     "LinuxStudy/Linux基础/1.命令详情.md",
     "LinuxStudy/Linux基础/0.命令分类概览.md",
     "LinuxStudy/Linux基础/20.软件安装RPM、SRPM与YUM.md",
@@ -225,7 +226,6 @@
     "0Voice/Linux C C++高级全栈开发（后端-游戏-嵌入式-高性能网络-存储-基础架构）",
     "0Voice/未命名.md",
     "0Voice/Linux C C++开发编程入门",
-    "LinuxStudy/Linux基础/16.认识与分析日志文件.md",
     "Windows基础详解",
     "LinuxStudy/Study.base",
     "Leetcode/附件：104.png",
