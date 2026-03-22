@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "LinuxStudy/Linux C C++开发编程入门/网络编程/TCP服务器（epoll）.md",
+                "file": "LinuxStudy/Linux C C++开发编程入门/网络编程/高并发服务器.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "TCP服务器（epoll）"
+              "title": "高并发服务器"
             }
           }
         ]
@@ -194,11 +194,12 @@
       "bases:新建数据库": false
     }
   },
-  "active": "91ca8a8853ef4e81",
+  "active": "dba332206cba0b3d",
   "lastOpenFiles": [
-    "LinuxStudy/Linux C C++开发编程入门/网络编程/TCP服务器（一请求一线程）.md",
-    "LinuxStudy/Linux C C++开发编程入门/网络编程/TCP服务器（epoll）.md",
     "LinuxStudy/Linux基础/1.命令详情.md",
+    "LinuxStudy/Linux C C++开发编程入门/网络编程/高并发服务器.md",
+    "LinuxStudy/Linux C C++开发编程入门/网络编程/TCP服务器（epoll）.md",
+    "LinuxStudy/Linux C C++开发编程入门/网络编程/TCP服务器（一请求一线程）.md",
     "LinuxStudy/Linux基础/2.快捷键.md",
     "Windows/Windows基础详解/04-系统管理工具 - 续.md",
     "LinuxStudy/Study.base",
@@ -225,7 +226,6 @@
     "LinuxStudy 1/Linux基础/7.系统目录结构.md",
     "LinuxStudy 1/Linux基础/6.通配符和正则表达式基础.md",
     "LinuxStudy 1/Linux基础/5.文件权限详解.md",
-    "LinuxStudy 1/Linux基础/4.环境变量.md",
     "LinuxStudy 1/Linux C C++开发编程入门/网络编程",
     "LinuxStudy 1/Linux C C++开发编程入门/Linux环境编程",
     "LinuxStudy 1/Linux C C++开发编程入门/Linux C编程",
