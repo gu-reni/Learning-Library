@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CPP/头文件/Linux环境/网络编程 POSIX 头文件.md",
+                "file": "CPP/头文件/详解/Linux环境/网络编程 POSIX 头文件/详解-1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "网络编程 POSIX 头文件"
+              "title": "详解-1"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CPP/头文件/Linux环境/网络编程 POSIX 头文件.md",
+                "file": "CPP/头文件/详解/Linux环境/网络编程 POSIX 头文件/详解-1.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "网络编程 POSIX 头文件 的大纲"
+              "title": "详解-1 的大纲"
             }
           },
           {
@@ -196,13 +196,20 @@
   },
   "active": "dba332206cba0b3d",
   "lastOpenFiles": [
+    "CPP/头文件/总览/Linux环境/网络编程 POSIX 头文件未命名.md",
+    "CPP/头文件/详解/Linux环境/网络编程 POSIX 头文件/详解-1.md",
+    "CPP/头文件/详解/未命名.md",
+    "CPP/头文件/详解/Linux环境/网络编程 POSIX 头文件",
+    "CPP/头文件/详解/Windows环境",
+    "CPP/头文件/详解/Linux环境",
+    "CPP/头文件/详解",
+    "CPP/头文件/总览",
     "CPP/面试题/c++知识点.md",
     "CPP/面试题",
     "CPP/未命名.md",
-    "CPP/头文件/Linux环境/网络编程 POSIX 头文件.md",
-    "CPP/头文件/Windows环境",
+    "CPP/头文件/总览/Windows环境",
     "LinuxStudy/Linux C C++开发编程入门/网络编程/高并发服务器.md",
-    "CPP/头文件/Linux环境",
+    "CPP/头文件/总览/Linux环境",
     "CPP/头文件/未命名.md",
     "CPP/头文件",
     "CPP/Linux环境",
@@ -211,7 +218,6 @@
     "LinuxStudy/Linux C C++开发编程入门/网络编程/TCP服务器（一请求一线程）.md",
     "LinuxStudy/Linux基础/2.快捷键.md",
     "Windows/Windows基础详解/04-系统管理工具 - 续.md",
-    "LinuxStudy/Study.base",
     "Windows/Windows基础详解/00-目录和概述.md",
     "LinuxStudy 1/Linux C C++开发编程入门/网络编程/TCP服务器（一请求一线程）.md",
     "LinuxStudy 1/Linux C C++开发编程入门/网络编程/HTTP编程（TCP客户端）.md",
@@ -229,11 +235,6 @@
     "LinuxStudy 1/Linux基础/附件：inode block数据存取示意图.png",
     "LinuxStudy 1/Linux基础/附件：FAT文件系统数据存取示意图.png",
     "LinuxStudy 1/Linux基础/附件：chmod中+，-，=的区别.md",
-    "LinuxStudy 1/Linux基础/常见问题及解决方法.md",
-    "LinuxStudy 1/Linux C C++开发编程入门/网络编程",
-    "LinuxStudy 1/Linux C C++开发编程入门/Linux环境编程",
-    "LinuxStudy 1/Linux C C++开发编程入门/Linux C编程",
-    "LinuxStudy 1/Study.base",
     "未命名.canvas",
     "0Voice/未命名.canvas",
     "Leetcode/附件：104.png",
