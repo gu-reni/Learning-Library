@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目日记/高并发服务器.md",
+                "file": "项目日记/高并发服务器/项目经过.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "高并发服务器"
+              "title": "项目经过"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "项目日记/高并发服务器.md",
+                "file": "项目日记/高并发服务器/项目经过.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "高并发服务器 的大纲"
+              "title": "项目经过 的大纲"
             }
           },
           {
@@ -196,9 +196,11 @@
   },
   "active": "dba332206cba0b3d",
   "lastOpenFiles": [
+    "项目日记/高并发服务器/个人问题解答.md",
+    "项目日记/高并发服务器/项目经过.md",
+    "项目日记/高并发服务器",
     "CPP/头文件/详解/Linux环境/网络编程 POSIX 头文件/详解-1.md",
     "CPP/头文件/总览/Linux环境/网络编程 POSIX 头文件.md",
-    "项目日记/高并发服务器.md",
     "项目日记",
     "CPP/头文件/详解/未命名.md",
     "CPP/头文件/详解/Linux环境/网络编程 POSIX 头文件",
@@ -213,7 +215,6 @@
     "LinuxStudy/Linux C C++开发编程入门/网络编程/高并发服务器.md",
     "CPP/头文件/总览/Linux环境",
     "CPP/头文件/未命名.md",
-    "CPP/头文件",
     "LinuxStudy/Linux基础/1.命令详情.md",
     "LinuxStudy/Linux C C++开发编程入门/网络编程/TCP服务器（epoll）.md",
     "LinuxStudy/Linux C C++开发编程入门/网络编程/TCP服务器（一请求一线程）.md",
@@ -231,7 +232,6 @@
     "LinuxStudy 1/Linux基础/附件：权限与命令间的关系.md",
     "LinuxStudy 1/Linux基础/附件：其他计算机基础理论知识.md",
     "LinuxStudy 1/Linux基础/附件：vim按键说明.md",
-    "LinuxStudy 1/Linux基础/附件：man,info,help,whatis详情和对比.md",
     "LinuxStudy 1/Linux基础/附件：vim常用指令示意图.png",
     "LinuxStudy 1/Linux基础/附件：inode block数据存取示意图.png",
     "LinuxStudy 1/Linux基础/附件：FAT文件系统数据存取示意图.png",
