@@ -25,12 +25,14 @@
             "id": "e5c45e171ae4048e",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.12.7"
+                "file": "CPP/头文件/详解/Linux环境/网络编程 POSIX 头文件/详解-1.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "版本说明 1.12.7"
+              "icon": "lucide-file",
+              "title": "详解-1"
             }
           }
         ],
@@ -169,12 +171,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "CPP/头文件/详解/Linux环境/网络编程 POSIX 头文件/详解-1.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "详解-1 的大纲"
             }
           },
           {
