@@ -11,7 +11,7 @@
 典型场景：创建和管理网络通信端点，执行基本的 TCP/UDP 操作。  
 现代 C++ 对应：Boost.Asio 或独立 Asio 库中的 `ip::tcp::socket`、`ip::udp::socket` 等封装。  
 头文件依赖：通常独立，但建议在显式使用类型如 `pid_t` 时包含 <sys/types.h>。
-
+[[详解-2]]
 **<unistd.h>**  
 提供 close()、read()、write()、pipe() 等 POSIX 基础系统调用，常用于对套接字描述符进行读写和关闭。  
 典型场景：直接对 socket 文件描述符进行 I/O 操作或关闭连接。  
