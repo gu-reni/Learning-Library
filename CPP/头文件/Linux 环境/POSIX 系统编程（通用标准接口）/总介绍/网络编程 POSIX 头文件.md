@@ -3,15 +3,12 @@
 以下为 POSIX 标准定义的网络编程相关头文件（不含 Linux 特有扩展如 `<sys/epoll.h>`），在类 Unix 系统上通用。
 
 ---
-
 ## 核心套接字
-[[详解-1]]
 **<sys/socket.h>**  
 提供 socket()、bind()、listen()、accept()、connect()、send()、recv() 等基础套接字操作，以及 struct sockaddr、struct msghdr 等核心结构。  
 典型场景：创建和管理网络通信端点，执行基本的 TCP/UDP 操作。  
 现代 C++ 对应：Boost.Asio 或独立 Asio 库中的 `ip::tcp::socket`、`ip::udp::socket` 等封装。  
 头文件依赖：通常独立，但建议在显式使用类型如 `pid_t` 时包含 <sys/types.h>。
-[[详解-2]]
 **<unistd.h>**  
 提供 close()、read()、write()、pipe() 等 POSIX 基础系统调用，常用于对套接字描述符进行读写和关闭。  
 典型场景：直接对 socket 文件描述符进行 I/O 操作或关闭连接。  
