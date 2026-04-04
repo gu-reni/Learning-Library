@@ -31,10 +31,12 @@ constexpr int factorial(int n) {
 static_assert(factorial(5) == 120);
 
 // 允许修改局部对象
-constexpr int max(int a, int b) {
-    if (a > b) return a;
-    else return b;
+constexpr int modify(int x) {
+    int y = x;        // 局部变量
+    y += 10;          // 修改局部对象（允许）
+    return y;
 }
+static_assert(modify(5) == 15);
 
 // 允许 switch、多个语句
 constexpr int digit_sum(int n) {
