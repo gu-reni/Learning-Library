@@ -398,13 +398,3 @@ struct Node {
 |------|------|
 | `std::allocator<T>` | 默认分配器 |
 | `std::pmr::polymorphic_allocator<T>` | 多态分配器（C++17） |
-
----
-
-## 十二、头文件分类
-
-根据您提供的分类树，`<forward_list>` 的归类为：
-
-```
-C++ 标准库 / STL 核心组件 / 容器 / 序列容器
-```
