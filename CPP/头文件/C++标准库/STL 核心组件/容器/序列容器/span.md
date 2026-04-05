@@ -1,6 +1,6 @@
 ## `<span>` 头文件详解
 
-`<span>` 是 C++20 标准库中定义的头文件，提供了 `std::span` 类模板。`std::span` 是一个轻量级的、非拥有的连续内存视图，可以引用数组、`std::vector`、`std::array` 等连续存储的对象序列，而不复制数据[reference:0]。它类似于指针和长度的组合，但提供了更安全的接口和更丰富的功能，是函数接口设计的现代替代方案[reference:1]。
+`<span>` 是 C++20 标准库中定义的头文件，提供了 `std::span` 类模板。`std::span` 是一个轻量级的、非拥有的连续内存视图，可以引用数组、`std::vector`、`std::array` 等连续存储的对象序列，而不复制数据。它类似于指针和长度的组合，但提供了更安全的接口和更丰富的功能，是函数接口设计的现代替代方案。
 
 ---
 
@@ -13,13 +13,13 @@ class span;
 
 | 参数 | 说明 |
 |------|------|
-| `T` | 元素类型；必须是完整的非抽象类对象类型[reference:2] |
-| `Extent` | 序列中的元素数量，若为动态则为 `std::dynamic_extent`[reference:3] |
+| `T` | 元素类型；必须是完整的非抽象类对象类型 |
+| `Extent` | 序列中的元素数量，若为动态则为 `std::dynamic_extent` |
 
 **说明：** 
 - `std::dynamic_extent` 是一个常量（通常为 `static_cast<std::size_t>(-1)`），表示 span 的大小在运行时确定。
 - 如果 `Extent` 是一个具体的非负整数，则 span 具有**静态范围**（编译时大小），类型中编码了大小信息。
-- 如果 `Extent` 为 `std::dynamic_extent`，则 span 具有**动态范围**（运行时大小），大小信息存储在对象中[reference:4]。
+- 如果 `Extent` 为 `std::dynamic_extent`，则 span 具有**动态范围**（运行时大小），大小信息存储在对象中。
 
 **多态分配器别名（C++17 起，注意：`std::pmr::span` 是 C++20 引入的）：**
 ```cpp
@@ -35,20 +35,20 @@ namespace pmr {
 
 | 类型别名 | 说明 |
 |----------|------|
-| `element_type` | `T`[reference:5] |
-| `value_type` | `std::remove_cv_t<T>`[reference:6] |
-| `size_type` | `std::size_t`[reference:7] |
-| `difference_type` | `std::ptrdiff_t`[reference:8] |
-| `pointer` | `T*`[reference:9] |
-| `const_pointer` | `const T*`[reference:10] |
-| `reference` | `T&`[reference:11] |
-| `const_reference` | `const T&`[reference:12] |
-| `iterator` | 实现定义的随机访问迭代器（LegacyRandomAccessIterator），满足 `ConstexprIterator` 和 `contiguous_iterator` 要求，其 `value_type` 为 `value_type`[reference:13] |
-| `const_iterator` | `std::const_iterator<iterator>`（C++23 起）[reference:14] |
-| `reverse_iterator` | `std::reverse_iterator<iterator>`[reference:15] |
-| `const_reverse_iterator` | `std::const_iterator<reverse_iterator>`（C++23 起）[reference:16] |
+| `element_type` | `T` |
+| `value_type` | `std::remove_cv_t<T>` |
+| `size_type` | `std::size_t` |
+| `difference_type` | `std::ptrdiff_t` |
+| `pointer` | `T*` |
+| `const_pointer` | `const T*` |
+| `reference` | `T&` |
+| `const_reference` | `const T&` |
+| `iterator` | 实现定义的随机访问迭代器（LegacyRandomAccessIterator），满足 `ConstexprIterator` 和 `contiguous_iterator` 要求，其 `value_type` 为 `value_type` |
+| `const_iterator` | `std::const_iterator<iterator>`（C++23 起） |
+| `reverse_iterator` | `std::reverse_iterator<iterator>` |
+| `const_reverse_iterator` | `std::const_iterator<reverse_iterator>`（C++23 起） |
 
-**注意：** `iterator` 是一个可变迭代器，如果 `T` 不是 const 限定类型[reference:17]。所有对容器迭代器类型的要求同样适用于 `span` 的迭代器类型[reference:18]。
+**注意：** `iterator` 是一个可变迭代器，如果 `T` 不是 const 限定类型。所有对容器迭代器类型的要求同样适用于 `span` 的迭代器类型。
 
 ---
 
@@ -56,7 +56,7 @@ namespace pmr {
 
 | 名称 | 值 |
 |------|-----|
-| `static constexpr std::size_t extent = Extent;` | `Extent` 模板参数的值（公开静态成员常量）[reference:19] |
+| `static constexpr std::size_t extent = Extent;` | `Extent` 模板参数的值（公开静态成员常量） |
 
 ---
 
@@ -66,22 +66,22 @@ namespace pmr {
 
 | 构造函数 | 说明 |
 |----------|------|
-| `span()` | 默认构造一个空 span，其 `data() == nullptr` 且 `size() == 0`。此重载仅在 `Extent == 0 \|\| Extent == std::dynamic_extent` 时参与重载决议[reference:20][reference:21] |
-| `span(const span& other)` | 拷贝构造函数（默认）[reference:22] |
+| `span()` | 默认构造一个空 span，其 `data() == nullptr` 且 `size() == 0`。此重载仅在 `Extent == 0 \|\| Extent == std::dynamic_extent` 时参与重载决议 |
+| `span(const span& other)` | 拷贝构造函数（默认） |
 | `span(span&& other)` | 移动构造函数（默认） |
-| `span(T* ptr, size_type count)` | 从指针和大小构造[reference:23] |
-| `span(T* first, T* last)` | 从指针范围 `[first, last)` 构造[reference:24] |
-| `span(T (&arr)[N])` | 从 C 风格数组构造（自动推导大小）[reference:25][reference:26] |
-| `span(std::array<T, N>& arr)` | 从 `std::array` 构造[reference:27] |
-| `span(const std::array<T, N>& arr)` | 从 const `std::array` 构造[reference:28] |
-| `span(Container& cont)` | 从支持 `data()` 和 `size()` 的容器（如 `std::vector`）构造[reference:29][reference:30] |
-| `span(Container const& cont)` | 从 const 容器构造[reference:31] |
+| `span(T* ptr, size_type count)` | 从指针和大小构造 |
+| `span(T* first, T* last)` | 从指针范围 `[first, last)` 构造 |
+| `span(T (&arr)[N])` | 从 C 风格数组构造（自动推导大小） |
+| `span(std::array<T, N>& arr)` | 从 `std::array` 构造 |
+| `span(const std::array<T, N>& arr)` | 从 const `std::array` 构造 |
+| `span(Container& cont)` | 从支持 `data()` 和 `size()` 的容器（如 `std::vector`）构造 |
+| `span(Container const& cont)` | 从 const 容器构造 |
 | `span(std::initializer_list<T> il)` | 从初始化列表构造（需要 `Extent == std::dynamic_extent` 或 `il.size() == Extent`） |
 
 **析构函数：**
 | 析构函数 | 说明 |
 |----------|------|
-| `~span()` | 析构一个 span（隐式声明）[reference:32] |
+| `~span()` | 析构一个 span（隐式声明） |
 
 **示例：**
 ```cpp
@@ -101,9 +101,9 @@ std::span<int> s5(arr + 1, arr + 4);        // 从指针范围构造（索引 1-
 ```
 
 **实现原理：**
-- `std::span` 是一个轻量级的非拥有式容器，仅存储指向底层序列的指针和大小（当范围为动态时）[reference:33]。
-- 在 64 位系统下，每个 `span` 实例通常仅占用 16 字节内存（8 字节指针 + 8 字节大小）[reference:34]。
-- `std::span` 的每个特化都是可平凡复制类型（C++23 起），这意味着其复制构造函数、移动构造函数等都是平凡的[reference:35]。
+- `std::span` 是一个轻量级的非拥有式容器，仅存储指向底层序列的指针和大小（当范围为动态时）。
+- 在 64 位系统下，每个 `span` 实例通常仅占用 16 字节内存（8 字节指针 + 8 字节大小）。
+- `std::span` 的每个特化都是可平凡复制类型（C++23 起），这意味着其复制构造函数、移动构造函数等都是平凡的。
 
 **线程安全提示：**
 构造和析构操作是平凡的，可以在多线程环境中安全地进行（只要不共享同一个 `span` 对象）。
@@ -114,7 +114,7 @@ std::span<int> s5(arr + 1, arr + 4);        // 从指针范围构造（索引 1-
 
 | 操作符/函数 | 说明 |
 |-------------|------|
-| `operator=(const span& other)` | 拷贝赋值（默认）[reference:36] |
+| `operator=(const span& other)` | 拷贝赋值（默认） |
 | `operator=(span&& other)` | 移动赋值（默认） |
 
 **实现原理：**
@@ -129,11 +129,11 @@ std::span<int> s5(arr + 1, arr + 4);        // 从指针范围构造（索引 1-
 
 | 函数 | 说明 |
 |------|------|
-| `front()` | 访问第一个元素（C++23 起）[reference:37] |
-| `back()` | 访问最后一个元素（C++26 起）[reference:38] |
-| `at(size_type pos)` | 带边界检查访问指定元素，越界抛出 `std::out_of_range`（C++26 起）[reference:39] |
-| `operator[](size_type pos)` | 访问指定元素（不带边界检查）[reference:40] |
-| `data()` | 返回指向底层连续存储的指针[reference:41] |
+| `front()` | 访问第一个元素（C++23 起） |
+| `back()` | 访问最后一个元素（C++26 起） |
+| `at(size_type pos)` | 带边界检查访问指定元素，越界抛出 `std::out_of_range`（C++26 起） |
+| `operator[](size_type pos)` | 访问指定元素（不带边界检查） |
+| `data()` | 返回指向底层连续存储的指针 |
 
 **示例：**
 ```cpp
@@ -162,10 +162,10 @@ int d = s.at(2);       // 3 (C++26)
 
 | 函数 | 说明 |
 |------|------|
-| `begin()` / `cbegin()` | 返回指向起始的迭代器（C++23 起）[reference:42] |
-| `end()` / `cend()` | 返回指向末尾的迭代器（C++23 起）[reference:43] |
-| `rbegin()` / `crbegin()` | 返回指向起始的逆向迭代器[reference:44] |
-| `rend()` / `crend()` | 返回指向末尾的逆向迭代器[reference:45] |
+| `begin()` / `cbegin()` | 返回指向起始的迭代器（C++23 起） |
+| `end()` / `cend()` | 返回指向末尾的迭代器（C++23 起） |
+| `rbegin()` / `crbegin()` | 返回指向起始的逆向迭代器 |
+| `rend()` / `crend()` | 返回指向末尾的逆向迭代器 |
 
 **示例：**
 ```cpp
@@ -191,9 +191,9 @@ for (auto rit = s.rbegin(); rit != s.rend(); ++rit) {
 
 | 函数 | 说明 |
 |------|------|
-| `size()` | 返回元素数量[reference:46] |
-| `size_bytes()` | 返回序列的字节大小（`size() * sizeof(T)`）[reference:47] |
-| `empty()` | 检查序列是否为空[reference:48] |
+| `size()` | 返回元素数量 |
+| `size_bytes()` | 返回序列的字节大小（`size() * sizeof(T)`） |
+| `empty()` | 检查序列是否为空 |
 
 **示例：**
 ```cpp
@@ -220,9 +220,9 @@ std::cout << s.empty();        // false
 
 | 函数 | 说明 |
 |------|------|
-| `first(size_type Count)` | 返回包含前 `Count` 个元素的子 span[reference:49] |
-| `last(size_type Count)` | 返回包含后 `Count` 个元素的子 span[reference:50] |
-| `subspan(size_type Offset, size_type Count = dynamic_extent)` | 返回从指定偏移量开始的子 span[reference:51] |
+| `first(size_type Count)` | 返回包含前 `Count` 个元素的子 span |
+| `last(size_type Count)` | 返回包含后 `Count` 个元素的子 span |
+| `subspan(size_type Offset, size_type Count = dynamic_extent)` | 返回从指定偏移量开始的子 span |
 
 **示例：**
 ```cpp
@@ -250,13 +250,13 @@ auto rest = s.subspan(5);            // {6, 7, 8, 9, 10} (从索引5到末尾)
 
 | 函数 | 说明 |
 |------|------|
-| `operator==(const span& lhs, const span& rhs)` | 比较两个 span 是否相等（逐个元素比较）[reference:52] |
-| `operator!=(const span& lhs, const span& rhs)` | 比较两个 span 是否不相等[reference:53] |
+| `operator==(const span& lhs, const span& rhs)` | 比较两个 span 是否相等（逐个元素比较） |
+| `operator!=(const span& lhs, const span& rhs)` | 比较两个 span 是否不相等 |
 | `operator<(const span& lhs, const span& rhs)` | 按字典序比较（C++20 起） |
 | `operator<=(const span& lhs, const span& rhs)` | 按字典序比较（C++20 起） |
 | `operator>(const span& lhs, const span& rhs)` | 按字典序比较（C++20 起） |
 | `operator>=(const span& lhs, const span& rhs)` | 按字典序比较（C++20 起） |
-| `as_bytes(span<T> s)` | 将 `span<T>` 转换为 `span<const std::byte>`，用于字节级操作[reference:54] |
+| `as_bytes(span<T> s)` | 将 `span<T>` 转换为 `span<const std::byte>`，用于字节级操作 |
 | `as_writable_bytes(span<T> s)` | 将 `span<T>` 转换为 `span<std::byte>`，用于字节级操作（要求 T 不是 const 限定） |
 
 **示例（字节级操作）：**
@@ -281,13 +281,13 @@ auto writable_bytes = std::as_writable_bytes(s);  // 可写字节视图
 | 常量 | 说明 |
 |------|------|
 | `std::dynamic_extent` | 表示动态范围大小的常量，通常为 `static_cast<std::size_t>(-1)` |
-| `std::span<T>::extent` | 静态成员常量，表示 span 的大小（动态时为 `dynamic_extent`）[reference:55] |
+| `std::span<T>::extent` | 静态成员常量，表示 span 的大小（动态时为 `dynamic_extent`） |
 
 ---
 
 ## 七、实现原理
 
-`std::span` 的典型实现仅包含两个核心成员[reference:56]：
+`std::span` 的典型实现仅包含两个核心成员：
 
 ```cpp
 template <typename T, size_t Extent = dynamic_extent>
@@ -298,19 +298,19 @@ class span {
 ```
 
 - 当 `Extent != dynamic_extent` 时，`_size` 成员不存在（通过模板特化或条件编译实现），大小在编译时已知。
-- 当 `Extent == dynamic_extent` 时，`_size` 成员存储运行时大小[reference:57]。
-- 在 64 位系统下，每个 `span` 实例通常仅占用 16 字节内存（8 字节指针 + 8 字节大小）[reference:58]。
-- 无虚函数/继承，避免虚函数表带来的内存开销和运行时损耗[reference:59]。
-- 底层数据必须满足连续内存布局，因此 `span` 不能用于 `std::list` 或 `std::deque` 等非连续容器[reference:60]。
-- `span` 的每个特化都是可平凡复制类型（C++23 起）[reference:61]。
+- 当 `Extent == dynamic_extent` 时，`_size` 成员存储运行时大小。
+- 在 64 位系统下，每个 `span` 实例通常仅占用 16 字节内存（8 字节指针 + 8 字节大小）。
+- 无虚函数/继承，避免虚函数表带来的内存开销和运行时损耗。
+- 底层数据必须满足连续内存布局，因此 `span` 不能用于 `std::list` 或 `std::deque` 等非连续容器。
+- `span` 的每个特化都是可平凡复制类型（C++23 起）。
 
 **内存模型：**
 ```
 内存地址: | 0x1000 | 0x1004 | 0x1008 | 0x100C | ...
 元素:     | T[0]   | T[1]   | T[2]   | T[3]   | ...
 ```
-- `span[i]` 的访问通过 `_ptr + i * sizeof(T)` 实现，时间复杂度 O(1)[reference:62]。
-- `span` 本身不分配内存，不拥有数据，不释放数据[reference:63]。
+- `span[i]` 的访问通过 `_ptr + i * sizeof(T)` 实现，时间复杂度 O(1)。
+- `span` 本身不分配内存，不拥有数据，不释放数据。
 
 ---
 
@@ -329,18 +329,18 @@ class span {
 ## 九、各标准版本新增特性
 
 ### C++20
-- 首次引入 `std::span`[reference:64]。
+- 首次引入 `std::span`。
 
 ### C++23
-- `std::span` 的每个特化都是可平凡复制类型[reference:65]。
-- 添加 `const_iterator` 和 `const_reverse_iterator` 成员类型[reference:66]。
-- 添加 `begin()`、`end()`、`cbegin()`、`cend()`、`rbegin()`、`rend()`、`crbegin()`、`crend()` 成员函数[reference:67]。
-- 添加 `front()` 成员函数[reference:68]。
-- 添加 `size_bytes()` 成员函数[reference:69]。
+- `std::span` 的每个特化都是可平凡复制类型。
+- 添加 `const_iterator` 和 `const_reverse_iterator` 成员类型。
+- 添加 `begin()`、`end()`、`cbegin()`、`cend()`、`rbegin()`、`rend()`、`crbegin()`、`crend()` 成员函数。
+- 添加 `front()` 成员函数。
+- 添加 `size_bytes()` 成员函数。
 
 ### C++26
-- 添加 `back()` 成员函数[reference:70]。
-- 添加 `at()` 成员函数（带边界检查）[reference:71]。
+- 添加 `back()` 成员函数。
+- 添加 `at()` 成员函数（带边界检查）。
 
 ---
 
@@ -361,9 +361,9 @@ class span {
 | 组件 | 说明 |
 |------|------|
 | `std::dynamic_extent` | 表示动态范围大小的常量 |
-| `std::as_bytes()` | 将 `span<T>` 转换为 `span<const std::byte>`[reference:72] |
-| `std::as_writable_bytes()` | 将 `span<T>` 转换为 `span<std::byte>`[reference:73] |
-| `std::span<T>::extent` | 静态成员常量，表示 span 的大小（动态时为 `dynamic_extent`）[reference:74] |
+| `std::as_bytes()` | 将 `span<T>` 转换为 `span<const std::byte>` |
+| `std::as_writable_bytes()` | 将 `span<T>` 转换为 `span<std::byte>` |
+| `std::span<T>::extent` | 静态成员常量，表示 span 的大小（动态时为 `dynamic_extent`） |
 
 ---
 
@@ -376,12 +376,12 @@ class span {
 - `std::span` 支持字节级操作（`as_bytes` 和 `as_writable_bytes`）。
 
 ### 最佳实践
-- 函数参数中使用 `std::span<T>` 替代 `const std::vector<T>&` 或 `T* + size_t`，以获得更好的通用性和安全性[reference:75]。
+- 函数参数中使用 `std::span<T>` 替代 `const std::vector<T>&` 或 `T* + size_t`，以获得更好的通用性和安全性。
 - 使用 `std::span<const T>` 表示只读视图，明确表达非拥有语义。
 - 使用 `std::as_bytes` 进行序列化或网络传输等字节级操作。
 - 注意确保 `span` 的生命周期不超过底层数据的生命周期。
 
 ### 性能特点
-- 零成本抽象：不存储数据，仅包含指针和长度信息（通常为 2 个机器字）[reference:76]。
-- 边界安全：自动携带长度信息，避免 C 风格数组的越界风险[reference:77]。
-- 统一接口：适配 `std::vector`、原生数组、`std::array` 等多种容器[reference:78]。
+- 零成本抽象：不存储数据，仅包含指针和长度信息（通常为 2 个机器字）。
+- 边界安全：自动携带长度信息，避免 C 风格数组的越界风险。
+- 统一接口：适配 `std::vector`、原生数组、`std::array` 等多种容器。

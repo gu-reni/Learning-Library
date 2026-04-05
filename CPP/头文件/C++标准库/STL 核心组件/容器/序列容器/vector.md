@@ -13,7 +13,7 @@ class vector;
 
 | 参数 | 说明 |
 |------|------|
-| `T` | 元素类型。C++11 前要求 `T` 满足 `CopyAssignable` 和 `CopyConstructible`；C++11 起要求取决于实际执行的操作，通常要求 `T` 是完整类型并满足 `Erasable` 要求[reference:0] |
+| `T` | 元素类型。C++11 前要求 `T` 满足 `CopyAssignable` 和 `CopyConstructible`；C++11 起要求取决于实际执行的操作，通常要求 `T` 是完整类型并满足 `Erasable` 要求 |
 | `Allocator` | 分配器类型，默认为 `std::allocator<T>`。用于管理 vector 的内存分配和释放 |
 
 **多态分配器别名**（C++17 起）：
@@ -81,7 +81,7 @@ std::vector<int> v6(std::move(v5));          // 移动构造
 - 移动构造（C++11）时，直接接管原 vector 的内存指针，将原 vector 置为空，避免内存复制。
 
 **线程安全提示：**
-`vector` 本身不是线程安全的[reference:1]。构造和析构操作应在单线程环境进行，或在有锁保护的情况下执行。
+`vector` 本身不是线程安全的。构造和析构操作应在单线程环境进行，或在有锁保护的情况下执行。
 
 ---
 
@@ -246,7 +246,7 @@ v.swap(v2);                      // 与 v2 交换内容
 ```
 
 **实现原理：**
-- `push_back` 会在 `size == capacity` 时触发扩容，分配新内存（通常为旧容量的 1.5 倍或 2 倍[reference:2]），将旧元素移动到新内存，然后添加新元素。
+- `push_back` 会在 `size == capacity` 时触发扩容，分配新内存（通常为旧容量的 1.5 倍或 2 倍），将旧元素移动到新内存，然后添加新元素。
 - `emplace_back` 相比 `push_back` 可以减少一次拷贝/移动，直接在内存中构造对象。
 - `insert` 和 `erase` 涉及元素的移动：插入时，从插入点开始的元素会后移；删除时，后面的元素会前移。
 - `swap` 只交换三个指针（`_M_start`、`_M_finish`、`_M_end_of_storage`）和分配器，不涉及元素复制。
@@ -257,7 +257,7 @@ v.swap(v2);                      // 与 v2 交换内容
 - `swap`：O(1)。
 
 **线程安全提示：**
-多个线程对同一个 vector 进行修改（如 `push_back`、`insert`、`erase`）会导致数据竞争。如果多个线程需要修改，必须使用互斥锁（如 `std::mutex`）或其他同步机制保护[reference:3]。
+多个线程对同一个 vector 进行修改（如 `push_back`、`insert`、`erase`）会导致数据竞争。如果多个线程需要修改，必须使用互斥锁（如 `std::mutex`）或其他同步机制保护。
 
 ---
 
@@ -299,13 +299,13 @@ v.swap(v2);                      // 与 v2 交换内容
 
 ## 六、实现原理
 
-`std::vector` 的典型实现使用三个指针来管理内存[reference:4]：
+`std::vector` 的典型实现使用三个指针来管理内存：
 - `_M_start`：指向底层数组的起始位置。
 - `_M_finish`：指向最后一个有效元素之后的位置（`size = _M_finish - _M_start`）。
 - `_M_end_of_storage`：指向已分配内存的末尾（`capacity = _M_end_of_storage - _M_start`）。
 
 **扩容机制：**
-当 `size == capacity` 且需要插入新元素时，vector 会重新分配一块更大的连续内存，将旧元素移动/复制到新内存中，然后释放旧内存。新的容量通常是旧容量的 1.5 倍或 2 倍，具体取决于标准库实现[reference:5]。这种指数级扩容策略保证了 `push_back` 的均摊 O(1) 时间复杂度。
+当 `size == capacity` 且需要插入新元素时，vector 会重新分配一块更大的连续内存，将旧元素移动/复制到新内存中，然后释放旧内存。新的容量通常是旧容量的 1.5 倍或 2 倍，具体取决于标准库实现。这种指数级扩容策略保证了 `push_back` 的均摊 O(1) 时间复杂度。
 
 **内存布局：**
 元素在内存中连续存储，因此：
@@ -334,7 +334,7 @@ v.swap(v2);                      // 与 v2 交换内容
 
 ## 八、线程安全
 
-**`std::vector` 本身不是线程安全的**[reference:6]。标准库容器不提供内置的线程安全机制。
+**`std::vector` 本身不是线程安全的**。标准库容器不提供内置的线程安全机制。
 
 **并发读写规则：**
 - **同时读取**：多个线程同时读取同一个 vector 的不同元素是安全的。
@@ -344,7 +344,7 @@ v.swap(v2);                      // 与 v2 交换内容
 
 **保证线程安全的常用方法：**
 - 使用 `std::mutex` 或 `std::shared_mutex` 保护所有对 vector 的访问。
-- 使用线程局部存储，每个线程使用独立的 vector 实例[reference:7]。
+- 使用线程局部存储，每个线程使用独立的 vector 实例。
 - 使用第三方并发容器（如 `tbb::concurrent_vector`）。
 
 ---
@@ -358,18 +358,18 @@ v.swap(v2);                      // 与 v2 交换内容
 - `cbegin()` / `cend()` / `crbegin()` / `crend()` 常量迭代器
 - 支持初始化列表构造和赋值
 - 支持右值引用版本的 `push_back()` 和 `insert()`
-- 满足 `AllocatorAwareContainer` 要求[reference:8]
+- 满足 `AllocatorAwareContainer` 要求
 
 ### C++14
 - 无明显针对 vector 的新特性
 
 ### C++17
-- `std::pmr::vector` 多态分配器别名模板[reference:9]
-- 满足 `ContiguousContainer` 要求[reference:10]
+- `std::pmr::vector` 多态分配器别名模板
+- 满足 `ContiguousContainer` 要求
 - `insert` 等成员函数支持节点提取
 
 ### C++20
-- 所有成员函数都变为 `constexpr`（可以在常量表达式中创建和使用）[reference:11]
+- 所有成员函数都变为 `constexpr`（可以在常量表达式中创建和使用）
 - `erase()` 和 `erase_if()` 非成员函数
 
 ### C++23
@@ -396,7 +396,7 @@ v.swap(v2);                      // 与 v2 交换内容
 
 **特别注意：**
 - 指向 `vector` 元素的指针和引用的失效规则与迭代器相同。
-- 使用 `reserve()` 预分配足够的内存可以避免插入操作引起的迭代器失效[reference:12]。
+- 使用 `reserve()` 预分配足够的内存可以避免插入操作引起的迭代器失效。
 
 ---
 
