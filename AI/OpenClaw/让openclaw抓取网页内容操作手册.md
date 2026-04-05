@@ -29,7 +29,7 @@ OpenClaw 的浏览器扩展需要与网关进行身份验证，你需要先获�
    ```
    输出类似：
    ```
-   "token": "83aadd7147403cda99bb906af40c9dd4fd03c5e84dbe1a8b"
+   "token": "一串字符串"
    ```
 3. **复制这个 token**（不要带引号），保存到记事本备用。
 
@@ -100,8 +100,7 @@ scp -r root@IP地址:/root/.openclaw/browser/chrome-extension C:\Users\你的用
 
 ## 第四步：配置扩展
 
-1. **点击工具栏上的 OpenClaw 扩展图标**，会打开一个配置页面（类似下图）。
-   ![配置页面示例](https://docs.openclaw.ai/assets/chrome-extension-config.png)
+1. **点击工具栏上的 OpenClaw 扩展图标**，会打开一个配置页面。
 2. 在页面中：
    - **Port** 保持默认 `18792`。
    - **Gateway token** 输入框粘贴你第一步复制的 token。
