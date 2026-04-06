@@ -117,3 +117,31 @@
 
 ---
 
+## 1.6 Windows 服务架构
+
+### svchost.exe 进程
+
+- 多个服务共享一个 `svchost.exe` 进程，按功能分组（网络、本地服务等）。
+- 查看分组：任务管理器 → 详细信息 → 右键 `svchost.exe` → 转到服务。
+
+### 服务依赖关系
+
+- 服务可能依赖其他服务或驱动程序。
+- 查看依赖：`services.msc` → 双击服务 → “依存关系”选项卡。
+
+### 创建自定义服务
+
+使用 `sc create` 命令创建简单服务：
+
+```cmd
+sc create MyService binPath= "C:\path\to\my.exe" start= auto
+sc start MyService
+sc stop MyService
+sc delete MyService
+```
+
+### 服务恢复选项
+services.msc → 双击服务 → “恢复”选项卡，可设置：
+- 第一次失败：重新启动服务
+- 第二次失败：运行程序
+- 后续失败：无操作/重新启动计算机
