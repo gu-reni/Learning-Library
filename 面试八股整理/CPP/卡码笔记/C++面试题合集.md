@@ -1,6 +1,6 @@
 # C++面试题合集 — 卡码笔记
 
-> 共 57 题，来源：卡码笔记 (notes.kamacoder.com)
+> 共 56 题，来源：卡码笔记 (notes.kamacoder.com)
 
 ---
 
@@ -143,7 +143,7 @@ C++ 中为了兼容 C 语言而保留了 C 语言的 struct 关键字，并且�
 #### 代码示例
 
 ```cpp
-`  #include            // 引入输入输出库
+#include <iostream>           // 引入输入输出库
 using namespace std;
 
 // 定义一个结构体：默认 public
@@ -152,50 +152,41 @@ int x;                    // 默认是 public，不需要额外写
 int y;
 
 void print() {           // 成员函数：结构体也可以有！
-cout 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
+cout << "Point: (" << x << ", " << y << ")" << endl;
+}
+};
 
+// 定义一个类：默认 private
+class Person {
+string name;             // 默认是 private，外部不能直接访问
+int age;
+
+public:                      // 显式写 public 开始对外开放接口
+Person(string n, int a) {
+name = n;
+age = a;
+}
+
+void introduce() {
+cout << "My name is " << name << ", age " << age << endl;
+}
+};
+
+int main() {
+// 使用结构体
+Point p;
+p.x = 3;                  // 直接访问，没问题（public）
+p.y = 4;
+p.print();               // 调用结构体的方法
+
+// 使用类
+Person someone("Tom", 25);   // 通过构造函数初始化
+// someone.name = "Jerry";  // 错误！name 是 private
+someone.introduce();        // 使用公开方法访问信息
+
+return 0;
+}
+```
 #### 知识拓展
 
 #### 知识图解
@@ -212,7 +203,7 @@ cout 1
 - 内存布局是连续的、可预测的
 
 ```cpp
-`  //这就是个经典的 POD 类型：没有构造函数没有继承成员,全是public能直接memcpy拷贝,初始化的时候也不需要构造器干预
+//这就是个经典的 POD 类型：没有构造函数没有继承成员,全是public能直接memcpy拷贝,初始化的时候也不需要构造器干预
 struct Point {
 int x;
 int y;
@@ -223,21 +214,7 @@ int x;
 int y;
 FancyPoint() { x = y = 0; }  // 有构造函数了
 };
-`
 ```
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-
 #### 面试官可能追问
 
 - struct 默认是 public，那**能在 struct 中加 private 吗**？
@@ -253,46 +230,41 @@ FancyPoint() { x = y = 0; }  // 有构造函数了
 这里给一个cpp代码的例子
 
 ```cpp
-`#include
+#include <iostream>
 
 // 父类使用 struct 定义，成员默认 public
 struct Base {
 void sayHello() {
-std::cout 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
+std::cout << "Hello from Base" << std::endl;
+}
+};
+
+// 1. 用 struct 继承 struct：默认 public 继承（可以访问）
+struct DerivedStruct : Base {
+void greet() {
+sayHello();  // 正常访问 Base 的成员
+}
+};
+
+// 2. 用 class 继承 struct：默认 private 继承（访问失败）
+class DerivedClass : Base {
+public:
+void greet() {
+sayHello();  // 在类内可以访问（Base 是 private 继承，但类内部仍能访问）
+}
+};
+
+int main() {
+DerivedStruct ds;
+ds.sayHello();   // 可以访问，因为 public 继承
+
+DerivedClass dc;
+// dc.sayHello(); // 编译错误！sayHello 在 DerivedClass 中是 private
+
+dc.greet();      // 可以正常调用，内部访问没问题
+return 0;
+}
+```
 
 ---
 
@@ -343,8 +315,8 @@ C++11后，**联合体可以包含非POD类型成**员，并**支持成员函数
 #### 代码示例
 
 ```cpp
-`#include
-#include
+#include <iostream>
+#include <string>
 
 // C++结构体示例（带成员函数）
 struct Student {
@@ -354,66 +326,55 @@ double score;
 
 // 成员函数
 void introduce() {
-std::cout 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
+std::cout << "我叫" << name << "，今年" << age << "岁，成绩" << score << std::endl;
+}
 
+// 构造函数
+Student(const std::string& n, int a, double s)
+: name(n), age(a), score(s) {}
+};
+
+// C++11联合体示例（含非POD类型）
+union Variant {
+int i;
+double d;
+std::string s;  // 非POD类型
+
+// 构造函数
+Variant() : i(0) {}
+~Variant() {}  // 需要自行管理字符串的生命周期
+
+// 成员函数
+void setInt(int val) { i = val; }
+void setString(const std::string& str) {
+new(&s) std::string(str);  // placement new
+}
+void destroyString() {
+s.~basic_string();  // 显式调用析构函数
+}
+};
+
+int main() {
+// 结构体使用
+Student stu("张三", 20, 90.5);
+stu.introduce();
+
+// 联合体使用
+Variant v;
+v.setInt(42);
+std::cout << "整数值: " << v.i << std::endl;
+
+v.setString("Hello");
+std::cout << "字符串值: " << v.s << std::endl;
+v.destroyString();
+
+// 查看大小
+std::cout << "结构体大小: " << sizeof(Student) << " 字节" << std::endl;
+std::cout << "联合体大小: " << sizeof(Variant) << " 字节" << std::endl;
+
+return 0;
+}
+```
 #### 知识拓展
 
 - 知识图解
@@ -491,19 +452,12 @@ A: 需要：
 在函数内用 `static` 声明的变量，**生命周期延长到整个程序运行期间**，但作用域仍限于函数内部。它只在第一次执行到声明语句时初始化一次，后续调用保留上次的值。
 
 ```text
-`┌──────────┐     ┌──────────┐     ┌──────────┐     ┌──────────┐
+┌──────────┐     ┌──────────┐     ┌──────────┐     ┌──────────┐
 │ 程序启动  │ ──→ │ 首次调用  │ ──→ │ 后续调用  │ ──→ │ 程序结束  │
 │ 分配静态  │     │ 执行初始化│     │ 保留上次  │     │ 析构释放  │
 │ 存储区    │     │（仅一次） │     │ 的值      │     │          │
 └──────────┘     └──────────┘     └──────────┘     └──────────┘
-`
 ```
-
-1
-2
-3
-4
-5
 # 2. 全局静态变量 / 函数（文件作用域）
 在文件作用域加 `static`，会限制该符号的链接属性为**内部链接（internal linkage）**，即其他 `.cpp` 文件无法通过 `extern` 访问它——实现"文件级私有"。
 # 3. 类的静态成员变量
@@ -521,7 +475,7 @@ A: 需要：
 这是面试重灾区！口诀：**const 在 `*` 左边修饰值，在 `*` 右边修饰指针。**
 
 ```text
-`┌─────────────────────┬──────────────────────────────────────┐
+┌─────────────────────┬──────────────────────────────────────┐
 │ 写法                 │ 含义                                 │
 ├─────────────────────┼──────────────────────────────────────┤
 │ const int* p        │ 底层 const → 指向的「值」不可改       │
@@ -532,20 +486,7 @@ A: 需要：
 ├─────────────────────┼──────────────────────────────────────┤
 │ const int* const p  │ 双重 const → 值和指针「都不可改」     │
 └─────────────────────┴──────────────────────────────────────┘
-`
 ```
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
 # 3. 修饰引用
 `const int& ref = x;` 表示不能通过 `ref` 修改 `x`。常用于函数参数传递——既避免拷贝开销，又保证不会意外修改原对象。
 # 4. 修饰成员函数
@@ -556,7 +497,7 @@ A: 需要：
 ##### 核心差异对比表
 
 ```text
-`┌────────────────┬─────────────────────────┬─────────────────────────┐
+┌────────────────┬─────────────────────────┬─────────────────────────┐
 │ 维度           │ static                  │ const                   │
 ├────────────────┼─────────────────────────┼─────────────────────────┤
 │ 核心语义       │ 控制生命周期和可见性      │ 控制可修改性（只读）      │
@@ -572,30 +513,11 @@ A: 需要：
 ├────────────────┼─────────────────────────┼─────────────────────────┤
 │ 能否同时使用   │          ✅ 可以！static const int X = 42;         │
 └────────────────┴─────────────────────────┴─────────────────────────┘
-`
 ```
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-
 ##### 📊 变量存储位置对比
 
 ```text
-`  ┌─────────────────┐   ┌─────────────────┐   ┌─────────────────┐
+┌─────────────────┐   ┌─────────────────┐   ┌─────────────────┐
 │   栈区 STACK     │   │ 全局/静态区 DATA │   │  只读区 RODATA   │
 ├─────────────────┤   ├─────────────────┤   ├─────────────────┤
 │ int x = 5;      │   │ static int cnt; │   │ "hello"         │
@@ -607,22 +529,7 @@ A: 需要：
 │                 │   │ Cls::s_val      │   │                 │
 │                 │   │  → 类静态成员    │   │                 │
 └─────────────────┘   └─────────────────┘   └─────────────────┘
-`
 ```
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-
 ---
 
 #### 💻 Part 03 · 代码示例
@@ -630,7 +537,7 @@ A: 需要：
 ##### 示例一：`static` 关键字综合示例
 
 ```cpp
-`#include
+#include <iostream>
 using namespace std;
 
 // ① 文件作用域的 static：仅本文件可见
@@ -652,64 +559,35 @@ int Counter::count = 0;            // 定义（类外，必须！）
 // ③ 局部 static 变量
 void callMe() {
 static int times = 0;          // 仅初始化一次
-cout 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
+cout << "called " << ++times << " times\n";
+}
 
+int main() {
+callMe();   // called 1 times
+callMe();   // called 2 times
+callMe();   // called 3 times
+
+{ Counter a, b, c; }          // 三个对象创建后立即析构
+cout << "alive: " << Counter::getCount() << "\n";
+
+return 0;
+}
+```
 **输出：**
 
 ```text
-`called 1 times
+called 1 times
 called 2 times
 called 3 times
 alive: 0
-`
 ```
-
-1
-2
-3
-4
-
 ---
 
 ##### 示例二：`const` 关键字综合示例
 
 ```cpp
-`#include
-#include
+#include <iostream>
+#include <string>
 using namespace std;
 
 class Student {
@@ -745,49 +623,12 @@ int* const p2 = &a;           // const 指针 → 不能改指向
 
 // ③ const 对象
 const Student s("Alice");
-cout 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
+cout << s.getName();           // ✅ getName 是 const 函数
+// s.setName("Bob");           // ❌ const 对象不能调非 const 函数
 
+return 0;
+}
+```
 > 💡 **面试技巧：** 回答 const 指针问题时，画一张表格比口述更清晰。面试官会非常欣赏你能快速画出 `const int*` vs `int* const` 的对比。
 
 ---
@@ -811,14 +652,9 @@ cout 1
 `const` 表示"运行时不可修改"，初始值可以在运行时才确定。`constexpr`（C++11）更强，表示"编译期常量"，值必须在编译时就能确定。例如 `constexpr int N = 1 + 2;` 编译时就算好了 3，可以用于数组大小、模板参数等。
 
 ```text
-`const     → 运行时只读    → 值可以运行时确定
+const     → 运行时只读    → 值可以运行时确定
 constexpr → 编译期常量    → 值必须编译时确定（更强的保证）
-`
 ```
-
-1
-2
-
 ---
 
 ##### Q3：`static` 局部变量是线程安全的吗？
@@ -828,7 +664,7 @@ C++11 标准保证：局部 `static` 变量的初始化是线程安全的（"mag
 这也是单例模式使用 `static` 局部变量实现（Meyer's Singleton）的理论基础：
 
 ```cpp
-`class Singleton {
+class Singleton {
 public:
 static Singleton& getInstance() {
 static Singleton instance;   // C++11 保证线程安全初始化
@@ -837,19 +673,7 @@ return instance;
 private:
 Singleton() = default;
 };
-`
 ```
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-
 ---
 
 ##### Q4：`mutable` 关键字的作用是什么？
@@ -875,7 +699,7 @@ Singleton() = default;
 **解决方案：** 用函数内的局部 `static` 变量替代（Construct On First Use Idiom），保证首次访问时才初始化。
 
 ```cpp
-`// ❌ 危险：初始化顺序不确定
+// ❌ 危险：初始化顺序不确定
 // file_a.cpp
 extern int b_val;
 int a_val = b_val + 1;    // b_val 可能还没初始化！
@@ -885,20 +709,7 @@ int& getA() {
 static int a_val = getB() + 1;
 return a_val;
 }
-`
 ```
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-
 ---
 
 ##### Q7：C 语言的 `const` 和 C++ 的 `const` 有什么不同？
@@ -906,14 +717,9 @@ return a_val;
 C 中的 `const` 变量默认是外部链接的，不能用于数组大小（非 VLA 编译器），本质上是"只读变量"。C++ 中的 `const` 默认是内部链接的，编译器会尝试将其当作编译期常量处理，可以用于数组大小。所以 C++ 的 `const` 更接近"常量"的语义。
 
 ```text
-`C   中的 const  →  只读变量（外部链接，不能做数组大小）
+C   中的 const  →  只读变量（外部链接，不能做数组大小）
 C++ 中的 const  →  编译期常量（内部链接，可做数组大小）
-`
 ```
-
-1
-2
-
 ---
 
 > ⚠️ **面试加分项：** 如果你能自然地把 `static` 与单例模式、`const` 与 `constexpr` 联系起来，会显示出你对 C++ 有更深层的理解，而不仅仅是背诵概念。
@@ -1026,7 +832,7 @@ volatile的作用就是**抑制编译器的优化**，具体包括：
 **没有 `volatile`** 的**问题**代码：
 
 ```cpp
-`uint32_t* temperature_reg = (uint32_t*)0x4000;
+uint32_t* temperature_reg = (uint32_t*)0x4000;
 
 void read_temperature() {
 uint32_t temp1 = *temperature_reg; // 第一次读取，编译器可能将值缓存
@@ -1038,39 +844,18 @@ if (temp1 != temp2) {
 // 但优化后的编译器可能认为temp1永远等于temp2，从而将整个if块消除！
 }
 }
-`
 ```
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-
 编译器优化后可能生成的指令等价于：
 
 ```cpp
-`uint32_t temp = *temperature_reg;
+uint32_t temp = *temperature_reg;
 uint32_t temp2 = temp; // 根本没有第二次真正的内存读取！
 if (temp != temp2) { ... } // 条件永远是假的，整个if块被删除
-`
 ```
-
-1
-2
-3
-
 使用 `volatile`的**正确**代码：
 
 ```cpp
-`// 告诉编译器这个指针指向的内容是易变的
+// 告诉编译器这个指针指向的内容是易变的
 volatile uint32_t* temperature_reg = (volatile uint32_t*)0x4000;
 
 void read_temperature() {
@@ -1083,23 +868,7 @@ if (temp1 != temp2) {
 printf("Temperature changed: %d -> %d\n", temp1, temp2);
 }
 }
-`
 ```
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-
 现在编译器会老老实实生成两次内存读取指令，if语句也会被保留。
 
 #### 知识拓展
@@ -1412,63 +1181,50 @@ NaN（Not a Number）是 IEEE 754 定义的特殊值，表示无效运算的结�
 - 静态局部变量示例
 
 ```cpp
-`  #include
+#include <iostream>
 using namespace std;
 void counter() {
 static int count = 0;  // 静态局部变量
 count++;
-cout 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-
+cout << "Static local count: " << count << endl;
+}
+int main() {
+counter();  // 输出: Static local count: 1
+counter();  // 输出: Static local count: 2
+return 0;
+}
+```
 - 全局变量示例
 
 ```cpp
-`  #include
+#include <iostream>
 using namespace std;
 int globalVar = 100;  // 全局变量
 void modifyGlobal() {
 globalVar += 50;
-cout 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-
+cout << "Modified global: " << globalVar << endl;
+}
+int main() {
+cout << "Initial global: " << globalVar << endl;  // 输出: Initial global: 100
+modifyGlobal();  // 输出: Modified global: 150
+return 0;
+}
+```
 - 局部变量示例
 
 ```cpp
-`  void calculate() {
+void calculate() {
 int localVar = 5;  // 局部变量
 localVar *= 2;
-cout 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-
+cout << "Local variable: " << localVar << endl;  // 输出: Local variable: 10
+// localVar 在此处销毁
+}
+int main() {
+calculate();
+// cout << localVar;  // 错误：局部变量不可见
+return 0;
+}
+```
 #### 知识拓展
 
 - 静态局部变量，全局变量，局部变量特点的示意图：
@@ -1664,48 +1420,35 @@ C++ 多态分两种：**编译时多态**靠函数重载和模板，编译期就
 - 虚函数
 
 ```cpp
-`#include
+#include <iostream>
 using namespace std;
 
 class Animal {
 public:
 virtual void speak() {  // 虚函数，有默认实现
-cout speak();  // 输出: Woof!
+cout << "Animal sound" << endl;
+}
+virtual ~Animal() {}  // 虚析构函数
+};
+
+class Dog : public Animal {
+public:
+void speak() override {  // 重写虚函数
+cout << "Woof!" << endl;
+}
+};
+
+int main() {
+Animal* animal = new Dog();
+animal->speak();  // 输出: Woof!
 delete animal;
 return 0;
 }
-`
 ```
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-
 - 纯虚函数
 
 ```cpp
-`#include
+#include <iostream>
 using namespace std;
 
 class Shape {  // 抽象基类
@@ -1717,37 +1460,18 @@ virtual ~Shape() {}
 class Circle : public Shape {
 public:
 void draw() override {  // 必须实现纯虚函数
-cout draw();  // 输出: Drawing a circle
+cout << "Drawing a circle" << endl;
+}
+};
+
+int main() {
+// Shape shape;  // 错误: 不能实例化抽象类
+Shape* shape = new Circle();
+shape->draw();  // 输出: Drawing a circle
 delete shape;
 return 0;
 }
-`
 ```
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-
 #### 知识拓展
 
 - 知识图解
@@ -1769,62 +1493,41 @@ Derived：是C++继承体系中的术语，指通过派生（derivation）从基
 **override关键字**：显式标记重写虚函数，编译器会检查是否真的重写了基类虚函数，避免拼写错误：
 
 ```cpp
-`class Derived : public Base {
+class Derived : public Base {
 public:
 void show() override;  // 明确表示重写基类虚函数
 };
-`
 ```
-
-1
-2
-3
-4
-
 **final关键字**：禁止派生类重写虚函数或禁止类被继承：
 
 ```cpp
-`class Base {
+class Base {
 public:
 virtual void show() final;  // 派生类不能重写
 };
-`
 ```
-
-1
-2
-3
-4
-
 **虚函数的特殊用法**
 纯虚函数可以在基类中提供实现，派生类可以显式调用：
 
 ```cpp
-`class Interface {
+class Interface {
 public:
 virtual void api() = 0;
 };
 
 // 纯虚函数的实现
 void Interface::api() {
-cout 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
+cout << "Default implementation" << endl;
+}
 
+class Impl : public Interface {
+public:
+void api() override {
+Interface::api();  // 调用基类实现
+// 添加具体实现
+}
+};
+```
 - 面试官追问
 
 - 为什么构造函数不能是虚函数？
@@ -1870,46 +1573,33 @@ cout 1
 #### 代码详解
 
 ```cpp
-`#include
+#include <iostream>
 
 class Base {
 public:
-virtual void func1() { std::cout func1();  // 输出 Derived::func1 - 动态绑定
+virtual void func1() { std::cout << "Base::func1" << std::endl; }
+virtual void func2() { std::cout << "Base::func2" << std::endl; }
+void func3() { std::cout << "Base::func3" << std::endl; }
+};
+
+class Derived : public Base {
+public:
+void func1() override { std::cout << "Derived::func1" << std::endl; }
+virtual void func4() { std::cout << "Derived::func4" << std::endl; }
+};
+
+int main() {
+Base b;
+Derived d;
+
+Base* pb = &d;
+pb->func1();  // 输出 Derived::func1 - 动态绑定
 pb->func2();  // 输出 Base::func2
 // pb->func4(); // 错误: Base没有func4成员
 
 return 0;
 }
-`
 ```
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-
 以上代码Base类的虚函数表包含两个条目：&Base::func1和&Base::func2，其中func3不是虚函数
 
 Derived类的虚函数表：
@@ -1974,43 +1664,29 @@ func3是非虚函数，不进入虚函数表
 #### 代码示例
 
 ```cpp
-`#include
+#include <iostream>
 using namespace std;
 
 class Base {
 public:
 virtual void show() {
-cout show();  // 输出：Derived::show()
+cout << "Base::show()" << endl;
+}
+};
+
+class Derived : public Base {
+public:
+void show() override {
+cout << "Derived::show()" << endl;
+}
+};
+
+int main() {
+Base* b = new Derived();
+b->show();  // 输出：Derived::show()
 return 0;
 }
-
-`
 ```
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-
 创建 Derived 对象时，它的 vptr 指向 Derived 类的虚表。
 
 当执行 b->show()，实际运行的是 Derived::show()，这是通过 vptr → vtable 间接跳转实现的。
@@ -2163,7 +1839,7 @@ this指针本身是一个**函数形参**，因此，它和其他函数参数一
 #### 代码示例
 
 ```cpp
-`#include
+#include <iostream>
 
 class MyClass {
 public:
@@ -2171,7 +1847,13 @@ MyClass(int value) : value_(value) {} // 构造函数初始化列表
 
 void PrintValue() {
 // 这里实际上是通过 this->value_ 来访问的，只是"this->"通常可以省略
-std::cout value_ = value_; // 正确！使用this指针明确指示要赋值给成员变量
+std::cout << "Value: " << value_ << std::endl;
+std::cout << "This address: " << this << std::endl;
+}
+
+void SetValue(int value_) { // 参数名与成员变量名相同，产生歧义
+// value_ = value_; // 错误！这只是在给参数自己赋值
+this->value_ = value_; // 正确！使用this指针明确指示要赋值给成员变量
 }
 
 // 返回对象自身的引用以支持链式调用
@@ -2188,51 +1870,20 @@ int main() {
 MyClass obj1(10);
 MyClass obj2(20);
 
-std::cout 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
+std::cout << "Address of obj1: " << &obj1 << std::endl;
+obj1.PrintValue(); // 输出地址应与 &obj1 相同
 
+std::cout << "Address of obj2: " << &obj2 << std::endl;
+obj2.PrintValue(); // 输出地址应与 &obj2 相同
+
+obj1.SetValue(42);
+obj1.PrintValue(); // 输出 Value: 42
+
+// 链式调用
+obj2.Add(5).Add(10).PrintValue(); // 输出 Value: 35 (20+5+10)
+return 0;
+}
+```
 #### 知识拓展
 
 const成员函数中的this：在一个被const修饰的成员函数（如 void func() const;）中，**this指针的类型变为 const ClassName *const this**。
@@ -2731,62 +2382,64 @@ weak_ptr：常用于解决share_ptr**循环引用**的问题，weak_ptr类的对
 std::unique_ptr 独占指针,不能拷贝，只能移动，一个资源只能被一个unique管理
 
 ```cpp
-`#include
-std::unique_ptr ptr1(new int(10));
-// std::unique_ptr ptr2 = ptr1.  错误，不可拷贝
-std::unique_ptr ptr2 = std::move(ptr1); //正确
-`
+#include <memory>
+std::unique_ptr<int> ptr1(new int(10));
+// std::unique_ptr<int> ptr2 = ptr1.  错误，不可拷贝
+std::unique_ptr<int> ptr2 = std::move(ptr1); //正确
 ```
-
-1
-2
-3
-4
-
 - 共享指针
 std::shared_ptr 共享指针，多个指针可以共享一个资源，使用**计数器**控制资源释放
 
 ```cpp
-`#include
-std::shared_ptr p1 = std::make_shared(10);
-std::shared_ptr p2 = p1;  // 引用计数 +1
-`
+#include <memory>
+std::shared_ptr<int> p1 = std::make_shared<int>(10);
+std::shared_ptr<int> p2 = p1;  // 引用计数 +1
 ```
-
-1
-2
-3
-
 - 弱指针
 用于观察共享指针的管理资源，不增加引用计数，防止循环引用
 
 ```cpp
-`std::shared_ptr sp = std::make_shared(42);
-std::weak_ptr wp = sp;  // 不增加引用计数
-`
+std::shared_ptr<int> sp = std::make_shared<int>(42);
+std::weak_ptr<int> wp = sp;  // 不增加引用计数
 ```
-
-1
-2
-
 - 三个指针同时运用的例子
 
 ```cpp
-`#include
-#include
+#include <iostream>
+#include <memory>
 using namespace std;
 
 class Animal {
 public:
 Animal(string name) : name_(name) {
-cout  dog = make_unique("Dog");
+cout << "Animal " << name_ << " created.\n";
+}
+~Animal() {
+cout << "Animal " << name_ << " destroyed.\n";
+}
+void speak() {
+cout << "Hi, I'm " << name_ << endl;
+}
+
+private:
+string name_;
+};
+
+int main() {
+// 1. 使用 unique_ptr 管理一只独占的小狗
+unique_ptr<Animal> dog = make_unique<Animal>("Dog");
 dog->speak();
 
 // 2. 使用 shared_ptr 管理一只共享的猫
-shared_ptr cat1 = make_shared("Cat");
+shared_ptr<Animal> cat1 = make_shared<Animal>("Cat");
 {
-shared_ptr cat2 = cat1;  // 共享一份资源
-cout  weakCat = cat1;
+shared_ptr<Animal> cat2 = cat1;  // 共享一份资源
+cout << "Cat use_count = " << cat1.use_count() << endl; // 应该是 2
+} // cat2 离开作用域，引用计数 -1
+cout << "Cat use_count = " << cat1.use_count() << endl; // 应该是 1
+
+// 3. 使用 weak_ptr 观察 shared_ptr 管理的猫
+weak_ptr<Animal> weakCat = cat1;
 if (auto catShared = weakCat.lock()) {
 catShared->speak();  // 还活着，可以访问
 }
@@ -2804,62 +2457,7 @@ Cat use_count = 1
 Hi, I'm Cat
 Animal Dog destroyed.
 Animal Cat destroyed.
-`
 ```
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-
 #### 知识拓展
 
 - 智能指针图解
@@ -2874,18 +2472,11 @@ Resource Acquisition Is Initialization（资源获取即初始化）
 通俗的讲就是，RAII就是“我拿到资源我就负责到底，我走了我就顺手把它销毁”
 
 ```cpp
-`  {
-std::unique_ptr ptr(new int(10)); // 构造：自动接管资源
+{
+std::unique_ptr<int> ptr(new int(10)); // 构造：自动接管资源
 // ...用 ptr 做点什么
 } // 离开作用域，析构：自动释放内存
-`
 ```
-
-1
-2
-3
-4
-
 - 记忆口诀
 
 unique 独家专属，不能复制
@@ -3177,59 +2768,42 @@ std::move和std::forward都是C++11引入的类型转换工具，但用途不同
 #### 代码示例
 
 ```cpp
-`#include
-#include
+#include <utility>
+#include <iostream>
 
-void process(int& lval) { std::cout
+void process(int& lval) { std::cout << "处理左值\n"; }
+void process(int&& rval) { std::cout << "处理右值\n"; }
+
+template<typename T>
 void forwarder(T&& arg) {
-std::cout (arg));  // 保持arg的原始值类别
+std::cout << "使用forward: ";
+process(std::forward<T>(arg));  // 保持arg的原始值类别
 
-std::cout 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
+std::cout << "使用move: ";
+process(std::move(arg));        // 强制转为右值
+}
 
+int main() {
+int x = 10;
+
+std::cout << "传递左值:\n";
+forwarder(x);
+
+std::cout << "\n传递右值:\n";
+forwarder(20);
+
+return 0;
+}
+```
 ```text
-`传递左值:
+传递左值:
 使用forward: 处理左值
 使用move: 处理右值
 
 传递右值:
 使用forward: 处理右值
 使用move: 处理右值
-`
 ```
-
-1
-2
-3
-4
-5
-6
-7
-
 #### 知识拓展
 
 - 知识图解
@@ -3323,18 +2897,11 @@ Lambda 本质是编译器生成的**匿名仿函数类**。语法 `[捕获列表
 `[threshold](int x) { return x > threshold; }` 编译器实际生成：
 
 ```text
-`struct __lambda_1 {
+struct __lambda_1 {
 int threshold;  // 值捕获 -> 成员变量
 bool operator()(int x) const { return x > threshold; }
 };
-`
 ```
-
-1
-2
-3
-4
-
 然后用当前作用域的 `threshold` 值初始化这个结构体。所以 lambda 就是一个有 `operator()` 的对象——和手写仿函数完全等价。
 
 **捕获列表的底层机制**
@@ -3679,60 +3246,31 @@ STL的容器的特点如下
 #### 代码示例
 
 ```cpp
-`#include
-#include
-#include
-#include
-#include
-#include
+#include <iostream>
+#include <vector>
+#include <map>
+#include <set>
+#include <unordered_map>
+#include <list>
 using namespace std;
 
 int main() {
-vector vec = {1, 2, 3};
+vector<int> vec = {1, 2, 3};
 vec.push_back(4);  // 动态数组
 
-list lst = {10, 20, 30};
+list<int> lst = {10, 20, 30};
 lst.push_front(5); // 双向链表
 
-set s = {5, 2, 3, 2}; // 自动去重排序
-map m = {{"Tom", 90}, {"Jerry", 85}}; // 字典
+set<int> s = {5, 2, 3, 2}; // 自动去重排序
+map<string, int> m = {{"Tom", 90}, {"Jerry", 85}}; // 字典
 
-unordered_map um;
+unordered_map<string, int> um;
 um["apple"] = 3;
 um["banana"] = 5; // 哈希表
 
 return 0;
 }
-
-`
 ```
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-
 #### 知识拓展
 
 - 知识图解
@@ -3827,42 +3365,33 @@ Vector使用动态分配的连续数组存储元素，维护**三个关键指针
 #### 代码示例
 
 ```cpp
-`#include
-#include
+#include <iostream>
+#include <vector>
 
-void printVectorInfo(const std::vector& v) {
-std::cout  vec;
+void printVectorInfo(const std::vector<int>& v) {
+std::cout << "Size: " << v.size()
+<< ", Capacity: " << v.capacity()
+<< ", Address: " << &v[0] << std::endl;
+}
+
+int main() {
+std::vector<int> vec;
 
 // 观察扩容过程
-for (int i = 0; i  vec2;
-vec2.reserve(100);  // 预先分配100个元素空间
-std::cout 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
+for (int i = 0; i < 20; ++i) {
+vec.push_back(i);
+printVectorInfo(vec);
+}
 
+// 预留空间避免频繁扩容
+std::vector<int> vec2;
+vec2.reserve(100);  // 预先分配100个元素空间
+std::cout << "\nAfter reserve:\n";
+printVectorInfo(vec2);
+
+return 0;
+}
+```
 #### 知识拓展
 
 - 知识图解
@@ -3999,74 +3528,47 @@ List：**有序集合**，ArrayList基于动态数组实现，随机访问高效
 #### 代码示例
 
 ```cpp
-`#include
-#include
-#include
-#include
-#include
-#include
+#include <iostream>
+#include <map>
+#include <unordered_map>
+#include <deque>
+#include <list>
+#include <vector>
 
 int main() {
 // std::map 示例
-std::map m;
+std::map<std::string, int> m;
 m["apple"] = 5;
 m["banana"] = 3;
 for (const auto& pair : m) {
-std::cout  um;
+std::cout << pair.first << ": " << pair.second << "\n";
+}
+// 输出自动按key排序
+
+// std::unordered_map 示例
+std::unordered_map<std::string, int> um;
 um["zebra"] = 2;
 um["apple"] = 5;
-std::cout  dq = {2, 3, 4};
+std::cout << um["apple"] << "\n";  // 快速查找
+
+// std::deque 示例
+std::deque<int> dq = {2, 3, 4};
 dq.push_front(1);  // 前插高效
 dq.push_back(5);   // 后插高效
-std::cout  lst = {1, 2, 4};
+std::cout << dq[2] << "\n";  // 随机访问
+
+// std::list 示例
+std::list<int> lst = {1, 2, 4};
 auto it = lst.begin();
 std::advance(it, 2);
 lst.insert(it, 3);  // 中间插入高效
 
 // std::vector 示例
-std::vector vec = {1, 2, 3};
+std::vector<int> vec = {1, 2, 3};
 vec.push_back(4);  // 尾部插入高效
-std::cout 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-
+std::cout << vec[1] << "\n";  // 随机访问
+}
+```
 #### 知识拓展
 
 - 底层实现对比
@@ -4136,81 +3638,75 @@ Allocator是STL中**负责内存管理的组件**，它封装了**内存分配�
 基本使用示例
 
 ```cpp
-`#include
-#include
-#include
+#include <memory>
+#include <vector>
+#include <iostream>
 
 void basic_allocator_usage() {
 // 默认allocator使用
-std::allocator alloc;
+std::allocator<int> alloc;
 
 // 分配能容纳5个int的内存
 int* ptr = alloc.allocate(5);
 
 // 在分配的内存上构造对象
-for(int i = 0; i 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
+for(int i = 0; i < 5; ++i) {
+alloc.construct(ptr + i, i * 10); // 构造对象：0, 10, 20, 30, 40
+}
 
+// 使用对象
+for(int i = 0; i < 5; ++i) {
+std::cout << ptr[i] << " "; // 输出：0 10 20 30 40
+}
+std::cout << std::endl;
+
+// 析构对象（但不释放内存）
+for(int i = 0; i < 5; ++i) {
+alloc.destroy(ptr + i);
+}
+
+// 释放内存
+alloc.deallocate(ptr, 5);
+}
+```
 自定义使用示例
 
 ```cpp
-`#include
-#include
-#include
+#include <cstdlib>
+#include <new>
+#include <iostream>
 
 // 简单的内存池allocator
-template
+template<typename T>
 class SimplePoolAllocator {
 public:
 using value_type = T;
 
 SimplePoolAllocator() = default;
 
-template
-SimplePoolAllocator(const SimplePoolAllocator&) {}
+template<typename U>
+SimplePoolAllocator(const SimplePoolAllocator<U>&) {}
 
 T* allocate(std::size_t n) {
-std::cout (std::malloc(n * sizeof(T)))) {
+std::cout << "Allocating " << n << " objects of size " << sizeof(T) << std::endl;
+if(auto p = static_cast<T*>(std::malloc(n * sizeof(T)))) {
 return p;
 }
 throw std::bad_alloc();
 }
 
 void deallocate(T* p, std::size_t n) {
-std::cout
-void construct(U* p, Args&&... args) {
-new(p) U(std::forward(args)...);
+std::cout << "Deallocating " << n << " objects" << std::endl;
+std::free(p);
 }
 
-template
+// C++17前需要定义construct/destroy
+template<typename U, typename... Args>
+void construct(U* p, Args&&... args) {
+new(p) U(std::forward<Args>(args)...);
+}
+
+template<typename U>
 void destroy(U* p) {
 p->~U();
 }
@@ -4218,59 +3714,15 @@ p->~U();
 
 // 使用自定义allocator的vector
 void custom_allocator_demo() {
-std::vector> vec;
+std::vector<int, SimplePoolAllocator<int>> vec;
 
-for(int i = 0; i 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-
+for(int i = 0; i < 5; ++i) {
+vec.push_back(i);
+std::cout << "Size: " << vec.size()
+<< ", Capacity: " << vec.capacity() << std::endl;
+}
+}
+```
 #### 知识拓展
 
 - 什么是rebind机制？
@@ -4400,58 +3852,46 @@ Rehash 是一个**相对耗时**的操作，**时间复杂度为 O(n)，其中 n
 #### 代码示例
 
 ```cpp
-`#include
-#include
+#include <iostream>
+#include <unordered_map>
 
 int main() {
-std::unordered_map myMap;
+std::unordered_map<std::string, int> myMap;
 
 // 1. 查看默认的桶数量、最大负载因子
-std::cout  0.8) { // 检查当前负载因子
-std::cout  myMap2;
+std::cout << "初始桶数量: " << myMap.bucket_count() << std::endl;
+std::cout << "最大负载因子: " << myMap.max_load_factor() << std::endl; // 通常为 1.0
+
+// 2. 插入元素，观察负载因子变化和 rehash
+for (int i = 0; i < 1000; ++i) {
+// 在插入前检查，如果负载因子接近最大值，可能会触发rehash
+if (myMap.load_factor() > 0.8) { // 检查当前负载因子
+std::cout << "即将触发rehash... ";
+std::cout << "Size: " << myMap.size();
+std::cout << ", Buckets: " << myMap.bucket_count();
+std::cout << ", Load Factor: " << myMap.load_factor() << std::endl;
+}
+myMap["key" + std::to_string(i)] = i;
+}
+
+std::cout << "最终桶数量: " << myMap.bucket_count() << std::endl;
+std::cout << "最终负载因子: " << myMap.load_factor() << std::endl;
+
+// 3. 手动控制 rehash
+std::cout << "\n--- 手动 rehash ---" << std::endl;
+std::unordered_map<std::string, int> myMap2;
 
 // 在插入大量数据前，先预留空间，避免多次自动rehash
 myMap2.reserve(1000); // 预留1000个元素的空间，内部会自动计算所需的桶数并rehash
-std::cout 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
+std::cout << "调用 reserve(1000) 后的桶数量: " << myMap2.bucket_count() << std::endl;
 
+// 或者直接指定桶的数量
+myMap2.rehash(2048);
+std::cout << "调用 rehash(2048) 后的桶数量: " << myMap2.bucket_count() << std::endl;
+
+return 0;
+}
+```
 #### 知识拓展
 
 - 知识图解
@@ -4685,10 +4125,10 @@ C++11 起，直接用 **`final`** 修饰类即可：`class MyClass final { ... }
 #### 代码示例
 
 ```cpp
-`#include
-#include
-#include
-#include
+#include <algorithm>
+#include <vector>
+#include <iostream>
+#include <chrono>
 
 // 仿函数版本
 struct Functor {
@@ -4698,10 +4138,10 @@ return x * x + 2 * x + 1;
 };
 
 void test_performance() {
-std::vector data(1000000);
+std::vector<int> data(1000000);
 std::generate(data.begin(), data.end(), []() { return rand() % 100; });
 
-std::vector result1(data.size()), result2(data.size());
+std::vector<int> result1(data.size()), result2(data.size());
 
 // 仿函数测试
 auto start1 = std::chrono::high_resolution_clock::now();
@@ -4714,49 +4154,17 @@ std::transform(data.begin(), data.end(), result2.begin(),
 [](int x) { return x * x + 2 * x + 1; });
 auto end2 = std::chrono::high_resolution_clock::now();
 
-auto duration1 = std::chrono::duration_cast(end1 - start1);
-auto duration2 = std::chrono::duration_cast(end2 - start2);
+auto duration1 = std::chrono::duration_cast<std::chrono::microseconds>(end1 - start1);
+auto duration2 = std::chrono::duration_cast<std::chrono::microseconds>(end2 - start2);
 
-std::cout 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-
+std::cout << "Functor time: " << duration1.count() << " μs\n";
+std::cout << "Lambda time: " << duration2.count() << " μs\n";
+}
+```
 捕获场景对比
 
 ```cpp
-`// 带状态的仿函数
+// 带状态的仿函数
 class StatefulFunctor {
 int multiplier;
 public:
@@ -4765,7 +4173,7 @@ int operator()(int x) const { return x * multiplier; }
 };
 
 void test_capture_performance() {
-std::vector data(1000000);
+std::vector<int> data(1000000);
 int capture_value = 42;
 
 // 值捕获的lambda
@@ -4777,31 +4185,7 @@ auto lambda_by_ref = [&capture_value](int x) { return x * capture_value; };
 // 仿函数等价
 StatefulFunctor functor(capture_value);
 }
-`
 ```
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-
 #### 知识拓展
 
 - C++标准演进
@@ -4957,18 +4341,11 @@ C++11 引入 `noexcept` 说明符，告诉编译器"这个函数保证不抛异�
 当你写 `[x](int a) { return a * x; }` 时，编译器实际生成的是：
 
 ```text
-`struct __anonymous {
+struct __anonymous {
 int x;
 int operator()(int a) const { return a * x; }
 };
-`
 ```
-
-1
-2
-3
-4
-
 然后用捕获的 `x` 初始化这个结构体。所以 lambda 和仿函数在底层是同一个东西——编译器对它们做的优化（内联、常量传播等）完全一样。
 
 **真正影响性能的因素**
