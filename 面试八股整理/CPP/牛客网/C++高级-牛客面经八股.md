@@ -443,15 +443,15 @@ B 析构
 
  **虚函数表结构与查找过程** 
 
- - 虚函数表只是一个函数指针数组。假设基类有三个虚函数f1、f2、f3，则基类 vtable 的布局类似： ``` [ &Base::f1, &Base::f2, &Base::f3 ] ```
+ - 虚函数表只是一个函数指针数组。假设基类有三个虚函数f1、f2、f3，则基类 vtable 的布局类似： ```cpp [ &Base::f1, &Base::f2, &Base::f3 ] ```
 
- - 如果派生类Derived重写了f2，则其 vtable 为： ``` [ &Base::f1, &Derived::f2, &Base::f3 ] ```
+ - 如果派生类Derived重写了f2，则其 vtable 为： ```cpp [ &Base::f1, &Derived::f2, &Base::f3 ] ```
 
  - 对象Derived d; Base* p = &d;时，d.vptr指向Derived的 vtable。执行p->f2()时，运行时读取 vptr，跳转到&Derived::f2。
 
  **对象布局与调用开销** 
 
- - 对象内存布局示例（简化）： ``` struct Base { vptr --> [ vtable 指针 ] // 其他成员变量 }; ``` 派生类对象的前部也包含一个 vptr，指向派生类的 vtable。
+ - 对象内存布局示例（简化）： ```cpp struct Base { vptr --> [ vtable 指针 ] // 其他成员变量 }; ``` 派生类对象的前部也包含一个 vptr，指向派生类的 vtable。
 
  - 虚函数调用需要一次内存加载（加载 vptr）和一次间接跳转（调用 vtable 中对应函数指针），相较于普通函数调用存在轻微开销，但在多数应用中可接受。
 
@@ -3019,7 +3019,7 @@ int main() {
 
  **静态库编译与链接（Linux 示例）** 
 
-```bash
+```cpp
 g++ -c mathlib.cpp -o mathlib.o
 ar rcs libmath.a mathlib.o
 g++ main.cpp -L. -lmath -o main_static
@@ -3027,7 +3027,7 @@ g++ main.cpp -L. -lmath -o main_static
 
  **动态库编译与链接** 
 
-```bash
+```cpp
 g++ -fPIC -c mathlib.cpp -o mathlib.o
 g++ -shared mathlib.o -o libmath.so
 g++ main.cpp -L. -lmath -o main_dynamic
@@ -3036,7 +3036,7 @@ export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
 
  **运行结果** 
 
-```bash
+```cpp
 ./main_static
 3 + 4 = 7
 
@@ -3670,7 +3670,7 @@ Task A_fixed 完成
 
  - **提交任务** 提供一个enqueue()方法，接受可调用对象并将其封装为任务： ```cpp { std::lock_guard<std::mutex> lk(mtx); tasks.emplace(std::move(f)); } cv.notify_one(); ```
 
-```
+```cpp
 - 返回 `std::future<R>` 以获取任务执行结果（通过 `std::packaged_task` 或 `std::promise` 实现）。
 ```
 
