@@ -1,12 +1,12 @@
-# # GET请求和POST请求的区别？
+# GET请求和POST请求的区别？
 
 > 来源：卡码笔记
 
-## # GET请求和POST请求的区别？
+## GET请求和POST请求的区别？
  
-### # 简要回答
+### 简要回答
  
-#### # HTTP/1.0 和 HTTP/1.1 的概念
+#### HTTP/1.0 和 HTTP/1.1 的概念
  - **HTTP/1.0**：
 默认使用**短连接**（每次请求后关闭 TCP 连接），支持非标准长连接（需手动添加 `Connection: keep-alive` 请求头。
  - HTTP/1.0 性能开销大，且不适合频繁请求的情况。
@@ -14,14 +14,14 @@
 默认使用标准化**长连接**（无需额外手动设置），支持复用 TCP 连接处理多个请求。
  - HTTP/1.1 复用TCP连接，减少了连接开销，提高了性能，但连接管理更复杂。
  
-#### # HTTP/1.0 和 HTTP/1.1 的区别
+#### HTTP/1.0 和 HTTP/1.1 的区别
  - 
 如下表所示：
  **核心区别** **HTTP/1.0** **HTTP/1.1** **默认连接** 短连接（需手动启用长连接） 长连接（标准化） **Host 头** 不支持 支持（单 IP 托管多域名） **分块传输编码** 不支持 支持（动态内容流式传输） **缓存机制** 仅 **Expires** / **Last-Modified** 新增 **ETag** / **Cache-Control** **队头阻塞问题** 无（因短连接） 存在（长连接顺序处理请求） **范围请求** 不支持 支持断点续传 **状态码扩展** 基础状态码（如 200、404） 新增 100、409、410 等状态码
  
-### # 详细回答
+### 详细回答
  
-#### # HTTP/1.0 和 HTTP/1.1 的概念
+#### HTTP/1.0 和 HTTP/1.1 的概念
  - **HTTP/1.0短连接**：
 **定义**：
 
@@ -57,7 +57,7 @@
  - **缺点**：
  **连接管理复杂**：需要处理连接的复用和超时关闭。
  
-#### # HTTP/1.0 和 HTTP/1.1 的区别
+#### HTTP/1.0 和 HTTP/1.1 的区别
  - **默认连接管理**：
 **HTTP/1.0**：
 
@@ -112,12 +112,12 @@
  `409 Conflict`：请求与资源当前状态冲突（如并发编辑冲突）。
  `410 Gone`：资源已永久删除（比 404 更明确）。
  
-### # 知识拓展
+### 知识拓展
  
-#### # 一图胜千言
+#### 一图胜千言
  - HTTP/1.0 和 HTTP/1.1 关键区别，如下图所示：
 
-#### # HTTP and TCP Relationship
+#### HTTP and TCP Relationship
  - HTTP (Hypertext Transfer Protocol) and TCP (Transmission Control Protocol) are fundamental components of web communication, each playing distinct roles:
 **Layered Architecture**:
 **TCP** operates at the **transport layer** (Layer 4) of the OSI model, ensuring reliable, ordered, and error-checked data delivery between devices.

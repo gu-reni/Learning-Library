@@ -1,6 +1,6 @@
 # Vue-牛客面经八股
 
-> 来源：牛客网  |  共 43 题
+> 来源：牛客网 | 共 43 题
 
 ## 1. 请系统讲讲 Vue2 与 Vue3 的核心差异（响应式、API 设计、性能与编译器）。
 【一句话总结】
@@ -78,7 +78,7 @@ Vue 生命周期是组件从创建到销毁的过程，分为**创建、挂载�
 | mounted | 操作 DOM、使用$refs访问子组件或 DOM 元素、集成第三方库（如图表库、地图库）需要 DOM 的场景。 |
 | beforeUnmount/beforeDestroy | 清理工作。清除定时器 (clearInterval)、取消事件总线监听 ($off)、取消未完成的网络请求，防止内存泄漏。 |
 | updated | 在数据更改后操作更新后的 DOM。使用较少，需特别小心，因为任何数据修改都可能触发此钩子，容易导致无限更新循环。 |
-| activated/deactivated | （配合<keep-alive>使用）当组件被切换时，用于执行激活或停用的逻辑（如重新请求数据、暂停视频播放）。 |
+| activated/deactivated | （配合使用）当组件被切换时，用于执行激活或停用的逻辑（如重新请求数据、暂停视频播放）。 |
 
 ## 3. Vue3 为什么改用 Proxy 实现响应式？Vue2 的 defineProperty 有哪些局限？
 **【一句话总结】**
@@ -174,13 +174,13 @@ computed用于**派生依赖数据的值**，watch用于**观察变化执行副�
 
  - **场景**：格式化显示、数据过滤、简化模板中的复杂表达式。
 
- - **示例**： ```vue <script> export default { data() { return { firstName: '张', lastName: '三' }; }, computed: { // 派生出一个全名 fullName() { return this.firstName + ' ' + this.lastName; } } } </script> ``` **优势**：只要firstName或lastName不变，多次访问fullName会立即返回缓存结果，性能高效。
+ - **示例**： ```vue export default { data() { return { firstName: '张', lastName: '三' }; }, computed: { // 派生出一个全名 fullName() { return this.firstName + ' ' + this.lastName; } } } ``` **优势**：只要firstName或lastName不变，多次访问fullName会立即返回缓存结果，性能高效。
 
  **只能用watch：当数据变化时需要执行异步操作或非数据操作时** 
 
  - **场景**：API调用、DOM操作、执行开销较大的操作。
 
- - **示例**： ```vue <script> export default { data() { return { searchQuery: '' }; }, watch: { // 监听搜索词的变化，去调用API searchQuery(newVal, oldVal) { this.debouncedGetSearchResults(newVal); } }, methods: { debouncedGetSearchResults() { /* ... */ } // 防抖的API请求 } } </script> ```
+ - **示例**： ```vue export default { data() { return { searchQuery: '' }; }, watch: { // 监听搜索词的变化，去调用API searchQuery(newVal, oldVal) { this.debouncedGetSearchResults(newVal); } }, methods: { debouncedGetSearchResults() { /* ... */ } // 防抖的API请求 } } ```
 
 ## 6. v-for 中 key 的作用与不当使用造成的问题。
 **【一句话总结】**
@@ -320,7 +320,7 @@ Vue 2 的v-model是valueprop 和input事件的语法糖，且一个组件只能�
 
 #### **详细解释：语法差异与底层实现1. Vue 2 的 v-model** 
 
- - **语法与实现**： 在 Vue 2 中，在组件上使用v-model="pageTitle"等价于： ```vue <ChildComponent :value="pageTitle" @input="pageTitle = $event" /> ``` 默认使用value作为 prop。
+ - **语法与实现**： 在 Vue 2 中，在组件上使用v-model="pageTitle"等价于： ```vue ``` 默认使用value作为 prop。
 
  - 默认使用input作为事件。
 
@@ -328,15 +328,15 @@ Vue 2 的v-model是valueprop 和input事件的语法糖，且一个组件只能�
 
  - **与原生元素行为冲突**：像复选框、单选框等原生元素使用的valueprop 和input事件有特定用途，容易与自定义组件的v-model产生命名冲突。
 
- - **为了实现类似“双向绑定”其他prop，需使用.sync修饰符**，导致 API 不统一。 ```vue <!-- Vue 2 的 .sync 修饰符 --> <ChildComponent :title.sync="pageTitle" /> <!-- 等价于 --> <ChildComponent :title="pageTitle" @update:title="pageTitle = $event" /> ```
+ - **为了实现类似“双向绑定”其他prop，需使用.sync修饰符**，导致 API 不统一。 ```vue ```
 
  **2. Vue 3 的 v-model** 
 
- - **语法与实现**： 在 Vue 3 中，在组件上使用v-model="pageTitle"等价于： ```vue <ChildComponent :modelValue="pageTitle" @update:modelValue="pageTitle = $event" /> ``` 默认使用modelValue作为 prop。
+ - **语法与实现**： 在 Vue 3 中，在组件上使用v-model="pageTitle"等价于： ```vue ``` 默认使用modelValue作为 prop。
 
  - 默认使用update:modelValue作为事件。
 
- - **重大改进**： **支持多个v-model**：可以给同一个组件绑定多个“双向绑定”的 prop，解决了 Vue 2 的最大局限。 ```vue <!-- 可以同时绑定多个 v-model --> <UserName v-model:first-name="first" v-model:last-name="last" /> <!-- 等价于 --> <UserName :first-name="first" @update:first-name="first = $event" :last-name="last" @update:last-name="last = $event" /> ```
+ - **重大改进**： **支持多个v-model**：可以给同一个组件绑定多个“双向绑定”的 prop，解决了 Vue 2 的最大局限。 ```vue ```
 
  - **废弃.sync修饰符**：其功能已被v-model:arg语法完全取代，API 变得更加统一和清晰。
 
@@ -401,18 +401,13 @@ nextTick的作用是**将回调函数延迟到下一次 DOM 更新周期之后�
 
 ```javascript
 // ❌ 误用：在循环中频繁调用
-for (let i = 0; i < 100; i++) {
- this.items[i] = ...;
- this.$nextTick(() => {
+for (let i = 0; i {
  // 这里不会执行 100 次，且 DOM 状态不可预测
  });
 }
 
 // ✅ 正确：在所有数据变化后，调用一次 nextTick
-for (let i = 0; i < 100; i++) {
- this.items[i] = ...;
-}
-this.$nextTick(() => {
+for (let i = 0; i {
  // 在这里操作最终的 DOM
 });
 ```
@@ -422,7 +417,7 @@ this.$nextTick(() => {
 ## 11. keep-alive 的缓存策略、include/exclude 与激活钩子。
 【一句话总结】
  
-<keep-alive>通过 **LRU 算法**缓存非活动组件避免重复渲染，用 **include/exclude** 属性（匹配组件名）控制缓存名单，并通过 **activated** 和 **deactivated** 生命周期钩子管理组件的激活与失活状态。
+通过 **LRU 算法**缓存非活动组件避免重复渲染，用 **include/exclude** 属性（匹配组件名）控制缓存名单，并通过 **activated** 和 **deactivated** 生命周期钩子管理组件的激活与失活状态。
 
 ---
 
@@ -440,7 +435,7 @@ this.$nextTick(() => {
 
  - **deactivated**：组件**变为不可见时**触发（常用于清除定时器、取消请求）。
 
- **常见用法**：包裹动态组件或路由视图<router-view>，用于优化标签页、列表详情等需要保持状态和避免重复渲染的场景。
+ **常见用法**：包裹动态组件或路由视图，用于优化标签页、列表详情等需要保持状态和避免重复渲染的场景。
 
 ## 12. 何时需要自定义指令？指令的生命周期与参数签名。
 【一句话总结】
@@ -731,7 +726,7 @@ src/
 | 代码组织方式 | 按选项类型组织（数据放data，方法放methods）。
 优点：结构固定，易于初学者理解和阅读。
 缺点：同一功能的代码被拆分到不同选项，维护时需要反复上下滚动。 | 按逻辑功能组织。
-优点：同一功能的代码（状态、方法等）可以集中在一起（一个setup或<script setup>内），更利于维护和阅读。
+优点：同一功能的代码（状态、方法等）可以集中在一起（一个setup或内），更利于维护和阅读。
 缺点：需要开发者自己组织代码，对设计能力要求更高。 |
 | 逻辑复用能力 | 较弱。主要通过 mixins 实现，易产生命名冲突、来源不清晰、关系复杂。 | 强大。通过 自定义组合式函数（Composables）实现，利用纯函数和响应式 API，清晰且无冲突，是本质上的提升。 |
 | TypeScript 支持 | 支持较弱。需要依赖vue-class-component等装饰器方案，类型推导不理想。 | 原生支持极佳。基本上是普通的 TS 函数和变量，提供完整的类型推断。 |
@@ -768,7 +763,7 @@ provide/inject用于**跨多层组件共享数据**，需避免“隐式依赖�
 
  - **使用 Symbol Key**：集中定义和管理唯一的 Injection Key，避免命名冲突，明确依赖来源。 ```javascript // keys.js export const MyKey = Symbol('my-key'); ```
 
- - **TypeScript 类型约束**：为注入的值定义接口，提供类型安全和智能提示，使依赖关系显式化。 ```typescript interface Context { value: Ref<string>; updateValue: Fn; } const injected = inject(MyKey) as Context; ```
+ - **TypeScript 类型约束**：为注入的值定义接口，提供类型安全和智能提示，使依赖关系显式化。 ```typescript interface Context { value: Ref; updateValue: Fn; } const injected = inject(MyKey) as Context; ```
 
 ## 21. 讲一下组件库封装思路，包括：属性透传、事件设计、插槽（含作用域插槽）。
 【一句话总结】
@@ -805,7 +800,7 @@ provide/inject用于**跨多层组件共享数据**，需避免“隐式依赖�
 
  - **命名插槽**：用于接收位于组件特定部位的内容（如 header, footer）。
 
- - **作用域插槽**：**精髓所在**。允许组件向插槽内容传递数据，实现“数据驱动”的UI模板定制。 ```vue <!-- 组件提供方 --> <slot :item="item" :index="index">{{ item.defaultContent }}</slot> <!-- 组件使用方 --> <template #default="slotProps"> <div>自定义内容: {{ slotProps.item }}</div> </template> ```
+ - **作用域插槽**：**精髓所在**。允许组件向插槽内容传递数据，实现“数据驱动”的UI模板定制。 ```vue {{ item.defaultContent }} 自定义内容: {{ slotProps.item }} ```
 
  - **价值**：**内容定制能力的巅峰**，将渲染逻辑的控制权部分交给使用者，极大提升组件的灵活性。
 
@@ -848,32 +843,32 @@ provide/inject用于**跨多层组件共享数据**，需避免“隐式依赖�
 
  **结论**：强制渲染是最后手段。优先检查数据响应性和变更方式。
 
-## 23. 讲一下动态组件 <component> 的使用、切换与缓存策略。
+## 23. 讲一下动态组件 的使用、切换与缓存策略。
 【一句话总结】
  
-动态组件<component :is="...">通过绑定is属性**动态渲染指定组件**，切换时默认会销毁旧实例并创建新实例；需配合 **<keep-alive>** 组件包裹来实现实例缓存，并通过其include/exclude/max属性控制缓存策略，从而在频繁切换时保留组件状态、优化性能。
+动态组件通过绑定is属性**动态渲染指定组件**，切换时默认会销毁旧实例并创建新实例；需配合 组件包裹来实现实例缓存，并通过其include/exclude/max属性控制缓存策略，从而在频繁切换时保留组件状态、优化性能。
 
 ---
 
 #### **核心解析1. 基本使用与切换机制** 
 
- - **用法**：<component>是 Vue 的内置组件，其:is属性可接收**组件名称（字符串）** 或**组件定义（对象）**。Vue 会根据:is的值动态渲染对应的组件。 ```vue <component :is="currentTabComponent"></component> ```
+ - **用法**：是 Vue 的内置组件，其:is属性可接收**组件名称（字符串）** 或**组件定义（对象）**。Vue 会根据:is的值动态渲染对应的组件。 ```vue ```
 
  - **切换机制**：当:is的值发生变化时，Vue 会**销毁当前的组件实例并挂载新的组件实例**。这会导致组件内部状态（如表单输入内容、数据）的完全丢失。
 
- **2. 缓存策略与<keep-alive>** 
+ **2. 缓存策略与** 
 
- 为避免频繁切换带来的性能开销和状态丢失，必须使用<keep-alive>进行缓存。
+ 为避免频繁切换带来的性能开销和状态丢失，必须使用进行缓存。
 
- - **作用**：<keep-alive>是一个抽象组件，它将其包裹的动态组件实例**缓存在内存中**而不是销毁它们。当组件再次被切换到时，直接从缓存中恢复，从而保留所有状态。
+ - **作用**：是一个抽象组件，它将其包裹的动态组件实例**缓存在内存中**而不是销毁它们。当组件再次被切换到时，直接从缓存中恢复，从而保留所有状态。
 
- - **用法**： ```vue <keep-alive> <component :is="currentTabComponent"></component> </keep-alive> ```
+ - **用法**： ```vue ```
 
  - **生命周期变化**：被缓存的组件会触发activated（激活）和deactivated（失活）这两个特殊的生命周期钩子，而不是unmounted和mounted。
 
  **3. 精细化缓存控制** 
 
- - **include/exclude**：通过这两个 prop，可以精确控制哪些组件应该被缓存或排除。它们接受字符串、正则表达式或数组，并匹配组件的 **name选项**。 ```vue <keep-alive :include="['CompA', 'CompB']" :exclude="/CompC/"> <component :is="view"></component> </keep-alive> ```
+ - **include/exclude**：通过这两个 prop，可以精确控制哪些组件应该被缓存或排除。它们接受字符串、正则表达式或数组，并匹配组件的 **name选项**。 ```vue ```
 
  - **max**：指定可缓存组件实例的最大数量。当数量超过时，**采用 LRU（最近最少使用）算法**销毁最久没有被访问的实例，以控制内存占用。
 
@@ -972,7 +967,7 @@ provide/inject用于**跨多层组件共享数据**，需避免“隐式依赖�
 
  - **实现**： **路由懒加载**：使用动态import()语法，将不同路由对应的组件打包成独立的 JS 文件（chunk），访问时再按需加载。 ```javascript const Home = () => import('@/views/Home.vue') ```
 
- - **组件懒加载**：使用defineAsyncComponent或<Suspense>（实验性）延迟加载非首屏关键组件。 ```javascript import { defineAsyncComponent } from 'vue' const AsyncModal = defineAsyncComponent(() => import('./Modal.vue')) ```
+ - **组件懒加载**：使用defineAsyncComponent或（实验性）延迟加载非首屏关键组件。 ```javascript import { defineAsyncComponent } from 'vue' const AsyncModal = defineAsyncComponent(() => import('./Modal.vue')) ```
 
  - **效果**：显著降低初始加载资源量（Vendor Chunk 体积），提升首屏加载速度（LCP）。
 
@@ -980,7 +975,7 @@ provide/inject用于**跨多层组件共享数据**，需避免“隐式依赖�
 
  - **目标**：利用浏览器空闲时间，提前加载后续导航可能需要的资源，平滑后续交互体验。
 
- - **实现**： **魔法注释**：在import()中使用 Webpack 的魔法注释，指示编译器对资源添加preload或prefetch的<link>标签。 ```javascript // 预加载：高优先级，立即加载当前导航所需关键资源 const Home = () => import(/* webpackPreload: true */ '@/views/Home.vue') // 预获取：低优先级，在浏览器空闲时获取未来可能需要的资源 const Settings = () => import(/* webpackPrefetch: true */ '@/views/Settings.vue') ```
+ - **实现**： **魔法注释**：在import()中使用 Webpack 的魔法注释，指示编译器对资源添加preload或prefetch的标签。 ```javascript // 预加载：高优先级，立即加载当前导航所需关键资源 const Home = () => import(/* webpackPreload: true */ '@/views/Home.vue') // 预获取：低优先级，在浏览器空闲时获取未来可能需要的资源 const Settings = () => import(/* webpackPrefetch: true */ '@/views/Settings.vue') ```
 
  - **策略**：对当前用户流程即将访问的路由使用Preload，对用户可能下一步操作的路由使用Prefetch。
 
@@ -990,11 +985,11 @@ provide/inject用于**跨多层组件共享数据**，需避免“隐式依赖�
 
  - **实现**： **简单实现**：在组件中直接编写与真实 UI 布局相似的 HTML/CSS 占位结构。
 
- - **组件化**：创建可复用的<Skeleton>组件（如用于文章卡片、列表项），通过 props 控制显示/隐藏。
+ - **组件化**：创建可复用的组件（如用于文章卡片、列表项），通过 props 控制显示/隐藏。
 
  - **自动生成**：使用如vue-content-loading等库快速生成骨架屏 SVG。
 
- - **配合使用**：在异步组件加载时，先显示骨架屏，加载完成后再替换为真实内容。常与<Suspense>或v-if配合。 ```vue <template> <Skeleton v-if="loading" /> <RealContent v-else /> </template> ```
+ - **配合使用**：在异步组件加载时，先显示骨架屏，加载完成后再替换为真实内容。常与或v-if配合。 ```vue ```
 
 ## 27. axios 二次封装：拦截器、取消请求、重试与统一错误处理。
 **【一句话总结】**
@@ -1292,7 +1287,7 @@ Vue 2 受限于 Object.defineProperty，无法检测到对象属性的直接添�
 
  - **基础路径（publicPath）**：若项目部署在子路径（如https://domain.com/my-app/），需检查vue.config.js中的publicPath是否设置为'/my-app/'。
 
- - **HTML 模板**：检查index.html中的挂载点<div id="app"></div>是否存在，且主 JS 文件被正确引入。
+ - **HTML 模板**：检查index.html中的挂载点是否存在，且主 JS 文件被正确引入。
 
  **4. 深入首屏链路（第四步）** 
 
@@ -1322,7 +1317,7 @@ Vue 2 受限于 Object.defineProperty，无法检测到对象属性的直接添�
 | setup(Vue3)
 created(Vue2) | 组件实例创建后，DOM 挂载前 | 时机最早，利于服务端渲染 (SSR)，减少等待时间。 | 无法操作 DOM。 | 首屏数据、SEO 关键数据。适用于 SSR 项目或无需操作 DOM 的数据初始化。 |
 | mounted | DOM 挂载完成后 | 可安全操作 DOM 或基于 DOM 的信息（如尺寸）发起请求。 | 可能触发二次渲染（先渲染空状态，数据回来后再渲染），用户体验稍差。 | 需要 DOM 信息的数据获取（如图表初始化、定位滚动位置）。 |
-| onMounted(Vue3) | 同mounted | 在 Composition API 中逻辑更集中。 | 同mounted。 | 同mounted，在 Vue3 的<script setup>中使用。 |
+| onMounted(Vue3) | 同mounted | 在 Composition API 中逻辑更集中。 | 同mounted。 | 同mounted，在 Vue3 的中使用。 |
 
 #### **进阶实践：更好的用户体验**
 
@@ -1349,7 +1344,7 @@ created(Vue2) | 组件实例创建后，DOM 挂载前 | 时机最早，利于服
 
  - **创建引用**：使用ref(null)创建一个响应式引用，初始值为null。 ```javascript const domRef = ref(null); ```
 
- - **模板绑定**：在模板中，使用ref属性（非:ref）将其绑定到目标元素。 ```vue <div ref="domRef">目标元素</div> ```
+ - **模板绑定**：在模板中，使用ref属性（非:ref）将其绑定到目标元素。 ```vue 目标元素 ```
 
  - **时机正确**：**必须在onMounted生命周期钩子（或之后）** 才能安全访问domRef.value，因为此时 DOM 已挂载完毕。 ```javascript onMounted(() => { // 此时可安全操作 DOM domRef.value.style.color = 'red'; }); ```
 
@@ -1366,13 +1361,13 @@ keep-alive+ 动态路由下，**路由参数变化默认会命中同一组件的
 
  - **默认行为**：对于/user/:id这类动态路由，Vue 认为它们是**同一个组件**。因此参数从/user/1切换到/user/2时，**默认会复用之前缓存的组件实例**，导致页面内容不更新。
 
- - **实现独立缓存（不同参数不共享）**： **推荐方案**：为<router-view>绑定 **:key="$route.fullPath"**。参数变化导致key改变，Vue 会将其视为不同组件，从而**避免复用缓存**，重新创建实例。 ```vue <keep-alive> <router-view :key="$route.fullPath" /> </keep-alive> ```
+ - **实现独立缓存（不同参数不共享）**： **推荐方案**：为绑定 **:key="$route.fullPath"**。参数变化导致key改变，Vue 会将其视为不同组件，从而**避免复用缓存**，重新创建实例。 ```vue ```
 
  - **主动清除缓存（缓存失效）**： 若使用:include，可通过**动态管理include数组**（添加/移除组件名）来精确控制哪些组件应被缓存。
 
  - 此方法允许你手动将某个路由的缓存踢出，实现缓存失效。
 
- **注意**：使用:key会导致为每个新参数创建新实例，可能缓存过多。务必为<keep-alive>设置:max属性以防内存泄漏。
+ **注意**：使用:key会导致为每个新参数创建新实例，可能缓存过多。务必为设置:max属性以防内存泄漏。
 
 ## 38. 图片懒加载在 Vue 项目中的通用封装与可见性探测。
 #### 
@@ -1479,15 +1474,15 @@ app.mount('#app');
  封装完成后，在项目中使用变得非常简单和统一：
 
 ```vue
-<template>
- <!-- 基础用法 -->
- <img v-lazyload="'https://example.com/real-image.jpg'" alt="description">
 
- <!-- 在 v-for 循环中使用 -->
- <div v-for="item in imageList" :key="item.id">
- <img v-lazyload="item.url" :alt="item.alt">
- </div>
-</template>
+ 
+ 
+
+ 
+ 
+ 
+ 
+
 ```
 
 ## 39. Vue 项目跨页面传参与持久化的常见做法。
@@ -1648,15 +1643,15 @@ Vue 3 的响应式系统通过 **effect（副作用函数）自动追踪其内�
 ### 实际混合使用
 
 ```vue
-<template>
- <!-- 组件：UI容器 -->
- <div class="wrapper">
- <!-- 指令：DOM行为 -->
- <canvas v-chart="data" v-resize></canvas>
- <!-- 组件：业务逻辑 -->
- <ChartControls @update="handleUpdate"/>
- </div>
-</template>
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
 ```
 
 ## 43. 从 0 到 1 设计一个可复用的弹窗组件（受控/非受控、嵌套、可访问性）。
@@ -1678,11 +1673,11 @@ Vue 3 的响应式系统通过 **effect（副作用函数）自动追踪其内�
 
  - **受控模式**：组件的状态（显示/隐藏）完全由父组件通过props（如v-model:visible）控制。 **优点**：状态可控，父组件可以精确知道弹窗状态并做出响应。
 
- - **适用场景**：弹窗的显示依赖父组件的复杂逻辑时。 ```vue <Modal v-model:visible="isModalOpen" @ok="handleOk" @cancel="handleCancel"> <p>Modal Content</p> </Modal> ```
+ - **适用场景**：弹窗的显示依赖父组件的复杂逻辑时。 ```vue Modal Content ```
 
  - **非受控模式**：组件内部通过v-show和内部状态管理显示/隐藏，并通过 **ref暴露开关方法**（如open(),close()）。 **优点**：使用简单，父组件无需维护状态。
 
- - **适用场景**：简单的触发式弹窗。 ```vue <button @click="modalRef.open()">Open Modal</button> <Modal ref="modalRef"> <p>Modal Content</p> </Modal> ```
+ - **适用场景**：简单的触发式弹窗。 ```vue Open Modal Modal Content ```
 
  **2. 内容分发：使用插槽 (Slots)** 
 
@@ -1697,46 +1692,34 @@ Vue 3 的响应式系统通过 **effect（副作用函数）自动追踪其内�
  **1. 组件结构 (Modal.vue)** 
 
 ```vue
-<template>
- <Teleport to="body"> <!-- 关键：渲染到 body 末尾，避免样式被父组件影响 -->
- <transition name="modal-fade"> <!-- 过渡动画 -->
- <div
- v-show="modelValue"
- class="modal-mask"
- @click.self="handleMaskClick"
- role="dialog"
- aria-modal="true"
- :aria-labelledby="titleId"
- :aria-describedby="contentId"
- >
- <div class="modal-container">
- <div class="modal-header">
- <slot name="title">
- <h2 :id="titleId">{{ title }}</h2>
- </slot>
- <button
- class="modal-close"
- @click="handleClose"
- aria-label="Close modal"
- >×</button>
- </div>
- <div class="modal-body" :id="contentId">
- <slot></slot> <!-- 默认插槽 -->
- </div>
- <div class="modal-footer" v-if="$slots.footer">
- <slot name="footer"></slot>
- </div>
- </div>
- </div>
- </transition>
- </Teleport>
-</template>
+
+ 
+ 
+ 
+ 
+ 
+ 
+ {{ title }}
+ 
+ ×
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
 ```
 
  **2. 逻辑与交互 (Composition API)** 
 
 ```javascript
-<script setup>
+
 import { ref, computed, watch, onMounted, provide } from 'vue';
 // 定义 Props 和 Emits
 const props = defineProps({
@@ -1781,7 +1764,7 @@ provide('modal-close', close);
 
 // 暴露方法给父组件通过 ref 调用
 defineExpose({ open, close });
-</script>
+
 ```
 
 #### 三、 高级功能实现
@@ -1816,4 +1799,4 @@ defineExpose({ open, close });
 
  **3. 动画 (Animation)** 
 
- - 使用 Vue 的<transition>组件为.modal-mask（淡入淡出）和.modal-container（缩放）添加优雅的入场/离场动画。
+ - 使用 Vue 的组件为.modal-mask（淡入淡出）和.modal-container（缩放）添加优雅的入场/离场动画。

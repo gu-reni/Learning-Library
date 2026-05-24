@@ -1,17 +1,17 @@
-# # JDK8新特性
+# JDK8新特性
 
 > 来源：卡码笔记
 
-## # JDK8新特性
+## JDK8新特性
  
-### # 简要回答
+### 简要回答
  - Java8引入的核心新特性包括Lambda表达式，Stream API、函数式接口、默认方法、Optional类和新的日期与时间API。
  - **Lambda表达式**把函数作为一个方法的参数，提供简洁的语法编写匿名函数。
  - 引入的**函数式接口**注解@ FunctionalInterface，作为Lambda表达式的接口，比如Consumer、Supplier、Function和Predicate。
  - **Stream API**是数据流处理工具，提供了一种声明式的方式来对集合进行操作，如过滤、映射、排序和去重等。
  - Java8也引入了**java.time包**，提供了全新的日期和时间API，线程安全且易用，加强了对日期与时间的处理。
  
-### # 详细回答
+### 详细回答
  - 
 **Lambda表达式**：是Java8的核心特性，本质是匿名函数，即允许**函数作为方法参数传递**，简化代码编写。
  语法结构是 **(参数列表) -> {方法体}** ，其中参数类型可以省略，由编译器类型判断，单参数可省略括号，单行逻辑可以省略大括号与return。
@@ -44,9 +44,9 @@
  - **Instant**：表示时间戳（从1970-01-01 00:00:00 UTC开始），如Instant.now()；
  - **DateTimeFormatter**：用于格式化日期和时间，如DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")；
  
-### # 知识图解
+### 知识图解
 
-### # 代码示例
+### 代码示例
  - Lambda表达式与函数式接口使用
  
 ```
@@ -216,7 +216,7 @@ public class DateTimeDemo {
 15
 16
 
-### # 知识扩展
+### 知识扩展
  - 面试官可能追问
  - Q1：**Lambda表达式**和**匿名内部类**有什么区别？
 匿名内部类会生成独立的class文件，而Lambda表达式会生成私有静态方法和invokedynamic指令，节省资源。
